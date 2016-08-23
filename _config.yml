@@ -1,2 +1,4 @@
 name: Bar Down Software
 markdown: kramdown
+
+exclude: [code, hidden]
