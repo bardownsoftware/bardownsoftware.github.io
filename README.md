@@ -1,5 +1,4 @@
-# bardownsoftware.github.io
-Bar Down Software
+# Bar Down Software
 
 This is the home of software developed by Brian Kramer.
 
