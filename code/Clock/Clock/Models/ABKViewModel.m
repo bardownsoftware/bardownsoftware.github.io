@@ -69,7 +69,7 @@ static NSString * const ABKViewModelKeyFontName = @"ABKViewModelKeyFontName";
 {
     UIColor *defaultForegroundColor = [UIColor whiteColor];
     UIColor *defaultBackgroundColor = [UIColor blackColor];
-    NSString *defaultFontName = @"Courier";
+    NSString *defaultFontName = @"AvenirNext-UltraLight";
     BOOL defaultUse24HourClock = NO;
 
     NSUserDefaults *userDefaults = [NSUserDefaults kdg_defaults];
