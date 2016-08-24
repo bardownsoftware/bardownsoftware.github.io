@@ -27,12 +27,13 @@
 		EB8D231D1C0A977500B40965 /* ABKViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8D231C1C0A977500B40965 /* ABKViewModel.m */; };
 		EB8D23241C0A99D500B40965 /* ABKPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8D23231C0A99D500B40965 /* ABKPresenter.m */; };
 		EB8D232B1C0A9B7600B40965 /* ABKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8D232A1C0A9B7600B40965 /* ABKSettingsViewController.m */; };
-		EBEDC08A1D6CCF4000DD4CF0 /* KDGColorSwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC0771D6CCF3F00DD4CF0 /* KDGColorSwatch.m */; };
-		EBEDC08B1D6CCF4000DD4CF0 /* KDGCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC07A1D6CCF4000DD4CF0 /* KDGCustomView.m */; };
-		EBEDC08D1D6CCF4000DD4CF0 /* NSUserDefaults+KDGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC0801D6CCF4000DD4CF0 /* NSUserDefaults+KDGUtilities.m */; };
-		EBEDC08E1D6CCF4000DD4CF0 /* UIColor+KDGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC0831D6CCF4000DD4CF0 /* UIColor+KDGUtilities.m */; };
-		EBEDC0901D6CCF4000DD4CF0 /* UIStoryboard+KDGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC0891D6CCF4000DD4CF0 /* UIStoryboard+KDGViewController.m */; };
-		EBEDC0941D6CD4A900DD4CF0 /* KDGPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC0931D6CD4A900DD4CF0 /* KDGPresenter.m */; };
+		EBEDC11F1D6E163300DD4CF0 /* KDGColorSwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC1091D6E163300DD4CF0 /* KDGColorSwatch.m */; };
+		EBEDC1201D6E163300DD4CF0 /* KDGCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC10C1D6E163300DD4CF0 /* KDGCustomView.m */; };
+		EBEDC1211D6E163300DD4CF0 /* KDGPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC10F1D6E163300DD4CF0 /* KDGPresenter.m */; };
+		EBEDC1231D6E163300DD4CF0 /* NSUserDefaults+KDGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC1151D6E163300DD4CF0 /* NSUserDefaults+KDGUtilities.m */; };
+		EBEDC1241D6E163300DD4CF0 /* UIColor+KDGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC1181D6E163300DD4CF0 /* UIColor+KDGUtilities.m */; };
+		EBEDC1251D6E163300DD4CF0 /* UIFont+KDGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC11B1D6E163300DD4CF0 /* UIFont+KDGUtilities.m */; };
+		EBEDC1261D6E163300DD4CF0 /* UIStoryboard+KDGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC11E1D6E163300DD4CF0 /* UIStoryboard+KDGViewController.m */; };
 		EBF762D21CB0C0E900474988 /* ABKBuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF762D11CB0C0E900474988 /* ABKBuildViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -98,18 +99,20 @@
 		EB8D23231C0A99D500B40965 /* ABKPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABKPresenter.m; sourceTree = "<group>"; };
 		EB8D23291C0A9B7600B40965 /* ABKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABKSettingsViewController.h; sourceTree = "<group>"; };
 		EB8D232A1C0A9B7600B40965 /* ABKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABKSettingsViewController.m; sourceTree = "<group>"; };
-		EBEDC0761D6CCF3F00DD4CF0 /* KDGColorSwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGColorSwatch.h; sourceTree = "<group>"; };
-		EBEDC0771D6CCF3F00DD4CF0 /* KDGColorSwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGColorSwatch.m; sourceTree = "<group>"; };
-		EBEDC0791D6CCF4000DD4CF0 /* KDGCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGCustomView.h; sourceTree = "<group>"; };
-		EBEDC07A1D6CCF4000DD4CF0 /* KDGCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGCustomView.m; sourceTree = "<group>"; };
-		EBEDC07F1D6CCF4000DD4CF0 /* NSUserDefaults+KDGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+KDGUtilities.h"; sourceTree = "<group>"; };
-		EBEDC0801D6CCF4000DD4CF0 /* NSUserDefaults+KDGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+KDGUtilities.m"; sourceTree = "<group>"; };
-		EBEDC0821D6CCF4000DD4CF0 /* UIColor+KDGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+KDGUtilities.h"; sourceTree = "<group>"; };
-		EBEDC0831D6CCF4000DD4CF0 /* UIColor+KDGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+KDGUtilities.m"; sourceTree = "<group>"; };
-		EBEDC0881D6CCF4000DD4CF0 /* UIStoryboard+KDGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+KDGViewController.h"; sourceTree = "<group>"; };
-		EBEDC0891D6CCF4000DD4CF0 /* UIStoryboard+KDGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+KDGViewController.m"; sourceTree = "<group>"; };
-		EBEDC0921D6CD4A900DD4CF0 /* KDGPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGPresenter.h; sourceTree = "<group>"; };
-		EBEDC0931D6CD4A900DD4CF0 /* KDGPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGPresenter.m; sourceTree = "<group>"; };
+		EBEDC1081D6E163300DD4CF0 /* KDGColorSwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGColorSwatch.h; sourceTree = "<group>"; };
+		EBEDC1091D6E163300DD4CF0 /* KDGColorSwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGColorSwatch.m; sourceTree = "<group>"; };
+		EBEDC10B1D6E163300DD4CF0 /* KDGCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGCustomView.h; sourceTree = "<group>"; };
+		EBEDC10C1D6E163300DD4CF0 /* KDGCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGCustomView.m; sourceTree = "<group>"; };
+		EBEDC10E1D6E163300DD4CF0 /* KDGPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGPresenter.h; sourceTree = "<group>"; };
+		EBEDC10F1D6E163300DD4CF0 /* KDGPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGPresenter.m; sourceTree = "<group>"; };
+		EBEDC1141D6E163300DD4CF0 /* NSUserDefaults+KDGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+KDGUtilities.h"; sourceTree = "<group>"; };
+		EBEDC1151D6E163300DD4CF0 /* NSUserDefaults+KDGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+KDGUtilities.m"; sourceTree = "<group>"; };
+		EBEDC1171D6E163300DD4CF0 /* UIColor+KDGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+KDGUtilities.h"; sourceTree = "<group>"; };
+		EBEDC1181D6E163300DD4CF0 /* UIColor+KDGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+KDGUtilities.m"; sourceTree = "<group>"; };
+		EBEDC11A1D6E163300DD4CF0 /* UIFont+KDGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+KDGUtilities.h"; sourceTree = "<group>"; };
+		EBEDC11B1D6E163300DD4CF0 /* UIFont+KDGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+KDGUtilities.m"; sourceTree = "<group>"; };
+		EBEDC11D1D6E163300DD4CF0 /* UIStoryboard+KDGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+KDGViewController.h"; sourceTree = "<group>"; };
+		EBEDC11E1D6E163300DD4CF0 /* UIStoryboard+KDGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+KDGViewController.m"; sourceTree = "<group>"; };
 		EBF762D01CB0C0E900474988 /* ABKBuildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABKBuildViewController.h; sourceTree = "<group>"; };
 		EBF762D11CB0C0E900474988 /* ABKBuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABKBuildViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,7 +164,7 @@
 		EB0E9C951B6EDF2A00A76F26 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
-				EB0E9CBC1B6EE06200A76F26 /* Components */,
+				EBEDC1061D6E163300DD4CF0 /* Components */,
 				EB542C791BFC19EA005B7450 /* Application */,
 				EB542C521BFC19CA005B7450 /* Assets */,
 				EB8D231A1C0A977500B40965 /* Models */,
@@ -187,20 +190,6 @@
 				EB0E9CB11B6EDF2B00A76F26 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EB0E9CBC1B6EE06200A76F26 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				EBEDC0911D6CD4A900DD4CF0 /* KDGPresenter */,
-				EBEDC0751D6CCF3F00DD4CF0 /* KDGColorSwatch */,
-				EBEDC0781D6CCF4000DD4CF0 /* KDGCustomView */,
-				EBEDC07E1D6CCF4000DD4CF0 /* NSUserDefaults+ */,
-				EBEDC0811D6CCF4000DD4CF0 /* UIColor+ */,
-				EBEDC0871D6CCF4000DD4CF0 /* UIStoryboard+ */,
-			);
-			name = Components;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		EB1A58EC1BFD503400437A1D /* Categories */ = {
@@ -361,58 +350,82 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		EBEDC0751D6CCF3F00DD4CF0 /* KDGColorSwatch */ = {
+		EBEDC1061D6E163300DD4CF0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				EBEDC0761D6CCF3F00DD4CF0 /* KDGColorSwatch.h */,
-				EBEDC0771D6CCF3F00DD4CF0 /* KDGColorSwatch.m */,
+				EBEDC1071D6E163300DD4CF0 /* KDGColorSwatch */,
+				EBEDC10A1D6E163300DD4CF0 /* KDGCustomView */,
+				EBEDC10D1D6E163300DD4CF0 /* KDGPresenter */,
+				EBEDC1131D6E163300DD4CF0 /* NSUserDefaults+ */,
+				EBEDC1161D6E163300DD4CF0 /* UIColor+ */,
+				EBEDC1191D6E163300DD4CF0 /* UIFont+ */,
+				EBEDC11C1D6E163300DD4CF0 /* UIStoryboard+ */,
+			);
+			name = Components;
+			path = ../../Components;
+			sourceTree = "<group>";
+		};
+		EBEDC1071D6E163300DD4CF0 /* KDGColorSwatch */ = {
+			isa = PBXGroup;
+			children = (
+				EBEDC1081D6E163300DD4CF0 /* KDGColorSwatch.h */,
+				EBEDC1091D6E163300DD4CF0 /* KDGColorSwatch.m */,
 			);
 			path = KDGColorSwatch;
 			sourceTree = "<group>";
 		};
-		EBEDC0781D6CCF4000DD4CF0 /* KDGCustomView */ = {
+		EBEDC10A1D6E163300DD4CF0 /* KDGCustomView */ = {
 			isa = PBXGroup;
 			children = (
-				EBEDC0791D6CCF4000DD4CF0 /* KDGCustomView.h */,
-				EBEDC07A1D6CCF4000DD4CF0 /* KDGCustomView.m */,
+				EBEDC10B1D6E163300DD4CF0 /* KDGCustomView.h */,
+				EBEDC10C1D6E163300DD4CF0 /* KDGCustomView.m */,
 			);
 			path = KDGCustomView;
 			sourceTree = "<group>";
 		};
-		EBEDC07E1D6CCF4000DD4CF0 /* NSUserDefaults+ */ = {
+		EBEDC10D1D6E163300DD4CF0 /* KDGPresenter */ = {
 			isa = PBXGroup;
 			children = (
-				EBEDC07F1D6CCF4000DD4CF0 /* NSUserDefaults+KDGUtilities.h */,
-				EBEDC0801D6CCF4000DD4CF0 /* NSUserDefaults+KDGUtilities.m */,
+				EBEDC10E1D6E163300DD4CF0 /* KDGPresenter.h */,
+				EBEDC10F1D6E163300DD4CF0 /* KDGPresenter.m */,
+			);
+			path = KDGPresenter;
+			sourceTree = "<group>";
+		};
+		EBEDC1131D6E163300DD4CF0 /* NSUserDefaults+ */ = {
+			isa = PBXGroup;
+			children = (
+				EBEDC1141D6E163300DD4CF0 /* NSUserDefaults+KDGUtilities.h */,
+				EBEDC1151D6E163300DD4CF0 /* NSUserDefaults+KDGUtilities.m */,
 			);
 			path = "NSUserDefaults+";
 			sourceTree = "<group>";
 		};
-		EBEDC0811D6CCF4000DD4CF0 /* UIColor+ */ = {
+		EBEDC1161D6E163300DD4CF0 /* UIColor+ */ = {
 			isa = PBXGroup;
 			children = (
-				EBEDC0821D6CCF4000DD4CF0 /* UIColor+KDGUtilities.h */,
-				EBEDC0831D6CCF4000DD4CF0 /* UIColor+KDGUtilities.m */,
+				EBEDC1171D6E163300DD4CF0 /* UIColor+KDGUtilities.h */,
+				EBEDC1181D6E163300DD4CF0 /* UIColor+KDGUtilities.m */,
 			);
 			path = "UIColor+";
 			sourceTree = "<group>";
 		};
-		EBEDC0871D6CCF4000DD4CF0 /* UIStoryboard+ */ = {
+		EBEDC1191D6E163300DD4CF0 /* UIFont+ */ = {
 			isa = PBXGroup;
 			children = (
-				EBEDC0881D6CCF4000DD4CF0 /* UIStoryboard+KDGViewController.h */,
-				EBEDC0891D6CCF4000DD4CF0 /* UIStoryboard+KDGViewController.m */,
+				EBEDC11A1D6E163300DD4CF0 /* UIFont+KDGUtilities.h */,
+				EBEDC11B1D6E163300DD4CF0 /* UIFont+KDGUtilities.m */,
 			);
-			path = "UIStoryboard+";
+			path = "UIFont+";
 			sourceTree = "<group>";
 		};
-		EBEDC0911D6CD4A900DD4CF0 /* KDGPresenter */ = {
+		EBEDC11C1D6E163300DD4CF0 /* UIStoryboard+ */ = {
 			isa = PBXGroup;
 			children = (
-				EBEDC0921D6CD4A900DD4CF0 /* KDGPresenter.h */,
-				EBEDC0931D6CD4A900DD4CF0 /* KDGPresenter.m */,
+				EBEDC11D1D6E163300DD4CF0 /* UIStoryboard+KDGViewController.h */,
+				EBEDC11E1D6E163300DD4CF0 /* UIStoryboard+KDGViewController.m */,
 			);
-			path = KDGPresenter;
+			path = "UIStoryboard+";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -552,18 +565,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBEDC11F1D6E163300DD4CF0 /* KDGColorSwatch.m in Sources */,
+				EBEDC1231D6E163300DD4CF0 /* NSUserDefaults+KDGUtilities.m in Sources */,
+				EBEDC1251D6E163300DD4CF0 /* UIFont+KDGUtilities.m in Sources */,
+				EBEDC1201D6E163300DD4CF0 /* KDGCustomView.m in Sources */,
 				EB542C861BFC19EA005B7450 /* ABKMainViewController.m in Sources */,
-				EBEDC08D1D6CCF4000DD4CF0 /* NSUserDefaults+KDGUtilities.m in Sources */,
+				EBEDC1211D6E163300DD4CF0 /* KDGPresenter.m in Sources */,
 				EB542C851BFC19EA005B7450 /* main.m in Sources */,
 				EB8D231D1C0A977500B40965 /* ABKViewModel.m in Sources */,
 				EB542C951BFC220A005B7450 /* ABKTimeView.m in Sources */,
-				EBEDC08A1D6CCF4000DD4CF0 /* KDGColorSwatch.m in Sources */,
-				EBEDC0941D6CD4A900DD4CF0 /* KDGPresenter.m in Sources */,
-				EBEDC08B1D6CCF4000DD4CF0 /* KDGCustomView.m in Sources */,
 				EB542C831BFC19EA005B7450 /* ABKAppDelegate.m in Sources */,
 				EB8D23241C0A99D500B40965 /* ABKPresenter.m in Sources */,
-				EBEDC0901D6CCF4000DD4CF0 /* UIStoryboard+KDGViewController.m in Sources */,
-				EBEDC08E1D6CCF4000DD4CF0 /* UIColor+KDGUtilities.m in Sources */,
+				EBEDC1261D6E163300DD4CF0 /* UIStoryboard+KDGViewController.m in Sources */,
+				EBEDC1241D6E163300DD4CF0 /* UIColor+KDGUtilities.m in Sources */,
 				EB8D232B1C0A9B7600B40965 /* ABKSettingsViewController.m in Sources */,
 				EBF762D21CB0C0E900474988 /* ABKBuildViewController.m in Sources */,
 				EB1A58F31BFD503400437A1D /* UIColor+ABKColors.m in Sources */,
