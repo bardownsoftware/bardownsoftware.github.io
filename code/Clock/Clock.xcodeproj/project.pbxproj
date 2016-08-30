@@ -33,6 +33,7 @@
 		EBEDC08E1D6CCF4000DD4CF0 /* UIColor+KDGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC0831D6CCF4000DD4CF0 /* UIColor+KDGUtilities.m */; };
 		EBEDC0901D6CCF4000DD4CF0 /* UIStoryboard+KDGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC0891D6CCF4000DD4CF0 /* UIStoryboard+KDGViewController.m */; };
 		EBEDC0941D6CD4A900DD4CF0 /* KDGPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC0931D6CD4A900DD4CF0 /* KDGPresenter.m */; };
+		EBEDC1611D7496E500DD4CF0 /* KDGUtilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC1601D7496E500DD4CF0 /* KDGUtilities.mm */; };
 		EBF762D21CB0C0E900474988 /* ABKBuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF762D11CB0C0E900474988 /* ABKBuildViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,8 @@
 		EBEDC0891D6CCF4000DD4CF0 /* UIStoryboard+KDGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+KDGViewController.m"; sourceTree = "<group>"; };
 		EBEDC0921D6CD4A900DD4CF0 /* KDGPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGPresenter.h; sourceTree = "<group>"; };
 		EBEDC0931D6CD4A900DD4CF0 /* KDGPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGPresenter.m; sourceTree = "<group>"; };
+		EBEDC15F1D7496E500DD4CF0 /* KDGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGUtilities.h; sourceTree = "<group>"; };
+		EBEDC1601D7496E500DD4CF0 /* KDGUtilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KDGUtilities.mm; sourceTree = "<group>"; };
 		EBF762D01CB0C0E900474988 /* ABKBuildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABKBuildViewController.h; sourceTree = "<group>"; };
 		EBF762D11CB0C0E900474988 /* ABKBuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABKBuildViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,9 +195,10 @@
 		EB0E9CBC1B6EE06200A76F26 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				EBEDC0911D6CD4A900DD4CF0 /* KDGPresenter */,
 				EBEDC0751D6CCF3F00DD4CF0 /* KDGColorSwatch */,
 				EBEDC0781D6CCF4000DD4CF0 /* KDGCustomView */,
+				EBEDC0911D6CD4A900DD4CF0 /* KDGPresenter */,
+				EBEDC15E1D7496E500DD4CF0 /* KDGUtilities */,
 				EBEDC07E1D6CCF4000DD4CF0 /* NSUserDefaults+ */,
 				EBEDC0811D6CCF4000DD4CF0 /* UIColor+ */,
 				EBEDC0871D6CCF4000DD4CF0 /* UIStoryboard+ */,
@@ -415,6 +419,16 @@
 			path = KDGPresenter;
 			sourceTree = "<group>";
 		};
+		EBEDC15E1D7496E500DD4CF0 /* KDGUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				EBEDC15F1D7496E500DD4CF0 /* KDGUtilities.h */,
+				EBEDC1601D7496E500DD4CF0 /* KDGUtilities.mm */,
+			);
+			name = KDGUtilities;
+			path = ../Components/KDGUtilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -561,6 +575,7 @@
 				EBEDC0941D6CD4A900DD4CF0 /* KDGPresenter.m in Sources */,
 				EBEDC08B1D6CCF4000DD4CF0 /* KDGCustomView.m in Sources */,
 				EB542C831BFC19EA005B7450 /* ABKAppDelegate.m in Sources */,
+				EBEDC1611D7496E500DD4CF0 /* KDGUtilities.mm in Sources */,
 				EB8D23241C0A99D500B40965 /* ABKPresenter.m in Sources */,
 				EBEDC0901D6CCF4000DD4CF0 /* UIStoryboard+KDGViewController.m in Sources */,
 				EBEDC08E1D6CCF4000DD4CF0 /* UIColor+KDGUtilities.m in Sources */,
@@ -726,7 +741,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Clock/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "bardownsoftware.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BarDownSoftware.Clock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -740,7 +755,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Clock/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "bardownsoftware.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BarDownSoftware.Clock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

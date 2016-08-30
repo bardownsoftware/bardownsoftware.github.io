@@ -66,6 +66,14 @@ KDG_UTILITIES_EXTERN const float KDGRandomFloatInRange(float min, float max)
 
 #pragma mark - geometry
 
+KDG_UTILITIES_EXTERN const CGRect KDGRectMake(CGPoint centre, CGFloat width, CGFloat height) {
+    return CGRectMake(centre.x - 0.5 * width,
+                      centre.y - 0.5 * height,
+                      width,
+                      height);
+}
+
+
 KDG_UTILITIES_EXTERN const CGPoint KDGRectCenter(CGRect rect)
 {
     return CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));

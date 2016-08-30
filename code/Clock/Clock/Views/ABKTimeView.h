@@ -8,13 +8,14 @@
 
 @interface ABKTimeView : KDGCustomView
 
-@property (nonatomic, copy)   IBInspectable UIColor *textColor;
+@property (nonatomic, copy) NSString *fontName;
 
+@property (nonatomic, copy)   IBInspectable UIColor *textColor;
+@property (nonatomic, copy)   IBInspectable UIColor *color;
+@property (nonatomic, assign) IBInspectable BOOL digital;
 @property (nonatomic, assign) IBInspectable BOOL use24HourDisplay;
 @property (nonatomic, assign) IBInspectable BOOL displaySeconds;
 @property (nonatomic, assign) IBInspectable BOOL displayAMPM;
-
-@property (nonatomic, copy) NSString *fontName;
 
 - (void)start;
 - (void)stop;

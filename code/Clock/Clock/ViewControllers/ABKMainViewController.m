@@ -14,6 +14,7 @@
 
 @property (nonatomic, weak) IBOutlet ABKTimeView *timeView;
 @property (nonatomic, weak) IBOutlet UIButton *moreButton;
+@property (nonatomic, weak) IBOutlet UIButton *infoButton;
 
 @property (nonatomic, assign) CGFloat originalBrightness;
 @property (nonatomic, assign) BOOL    brightnessDimmed;
@@ -120,16 +121,24 @@
                                                 action:@selector(rightSwipeAction:)];
     rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
 
+    UITapGestureRecognizer *doubleTap
+    = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                              action:@selector(doubleTapAction:)];
+    doubleTap.numberOfTapsRequired = 2;
+    doubleTap.numberOfTouchesRequired = 1;
+
     [self.view addGestureRecognizer:upSwipe];
     [self.view addGestureRecognizer:downSwipe];
     [self.view addGestureRecognizer:leftSwipe];
     [self.view addGestureRecognizer:rightSwipe];
+    [self.view addGestureRecognizer:doubleTap];
 }
 
 - (void)updateColor
 {
-    self.timeView.textColor = self.viewModel.foregroundColor;
+    self.timeView.color = self.viewModel.foregroundColor;
     [self.moreButton setTitleColor:self.viewModel.foregroundColor forState:UIControlStateNormal];
+    [self.infoButton setTintColor:self.viewModel.foregroundColor];
     self.view.backgroundColor = self.viewModel.backgroundColor;
 }
 
@@ -143,6 +152,11 @@
     self.timeView.fontName = self.viewModel.fontName;
 }
 
+- (void)updateDigital
+{
+    self.timeView.digital = self.viewModel.digital;
+}
+
 #pragma mark - kvo
 
 - (void)setUpKVO
@@ -150,6 +164,7 @@
     for (NSString *keyPath in @[ABKViewModelForegroundColor,
                                 ABKViewModelBackgroundColor,
                                 ABKViewModelUse24HourClock,
+                                ABKViewModelDigital,
                                 ABKViewModelFontName])
     {
         [self.viewModel addObserver:self
@@ -166,6 +181,7 @@
     for (NSString *keyPath in @[ABKViewModelForegroundColor,
                                 ABKViewModelBackgroundColor,
                                 ABKViewModelUse24HourClock,
+                                ABKViewModelDigital,
                                 ABKViewModelFontName])
     {
         [self.viewModel removeObserver:self forKeyPath:keyPath];
@@ -188,6 +204,10 @@
     else if ([keyPath isEqualToString:ABKViewModelUse24HourClock])
     {
         [self update24HourClock];
+    }
+    else if ([keyPath isEqualToString:ABKViewModelDigital])
+    {
+        [self updateDigital];
     }
     else if ([keyPath isEqualToString:ABKViewModelFontName])
     {
@@ -257,14 +277,22 @@
 
 - (void)leftSwipeAction:(UIGestureRecognizer *)gesture
 {
-    NSString *fontName = [self nextFontName];
-    self.viewModel.fontName = fontName;
+    if (self.viewModel.digital) {
+        NSString *fontName = [self nextFontName];
+        self.viewModel.fontName = fontName;
+    }
 }
 
 - (void)rightSwipeAction:(UIGestureRecognizer *)gesture
 {
-    NSString *fontName = [self previousFontName];
-    self.viewModel.fontName = fontName;
+    if (self.viewModel.digital) {
+        NSString *fontName = [self previousFontName];
+        self.viewModel.fontName = fontName;
+    }
+}
+
+- (void)doubleTapAction:(UIGestureRecognizer *)gesture {
+    self.viewModel.digital = !self.viewModel.digital;
 }
 
 #pragma mark - settings delegate
