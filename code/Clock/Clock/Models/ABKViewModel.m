@@ -12,6 +12,7 @@
 NSString * const ABKViewModelForegroundColor = @"foregroundColor";
 NSString * const ABKViewModelBackgroundColor = @"backgroundColor";
 NSString * const ABKViewModelUse24HourClock = @"use24HourClock";
+NSString * const ABKViewModelDigital = @"digital";
 NSString * const ABKViewModelFontName = @"fontName";
 
 //  Keys for saving values to user defaults.
@@ -19,6 +20,7 @@ NSString * const ABKViewModelFontName = @"fontName";
 static NSString * const ABKViewModelKeyForegroundColor = @"ABKViewModelKeyForegroundColor";
 static NSString * const ABKViewModelKeyBackgroundColor = @"ABKViewModelKeyBackgroundColor";
 static NSString * const ABKViewModelKeyUse24HourClock = @"ABKViewModelKeyUse24HourClock";
+static NSString * const ABKViewModelKeyDigital = @"ABKViewModelKeyDigital";
 static NSString * const ABKViewModelKeyFontName = @"ABKViewModelKeyFontName";
 
 @implementation ABKViewModel
@@ -57,6 +59,14 @@ static NSString * const ABKViewModelKeyFontName = @"ABKViewModelKeyFontName";
                                     forKey:ABKViewModelKeyUse24HourClock];
 }
 
+- (void)setDigital:(BOOL)digital
+{
+    _digital = digital;
+
+    [[NSUserDefaults kdg_defaults] setBool:_digital
+                                    forKey:ABKViewModelKeyDigital];
+}
+
 - (void)setFontName:(NSString *)fontName
 {
     _fontName = fontName;
@@ -69,8 +79,9 @@ static NSString * const ABKViewModelKeyFontName = @"ABKViewModelKeyFontName";
 {
     UIColor *defaultForegroundColor = [UIColor whiteColor];
     UIColor *defaultBackgroundColor = [UIColor blackColor];
-    NSString *defaultFontName = @"AvenirNext-UltraLight";
+    NSString *defaultFontName = @"Audiowide";
     BOOL defaultUse24HourClock = NO;
+    BOOL defaultDigital = YES;
 
     NSUserDefaults *userDefaults = [NSUserDefaults kdg_defaults];
 
@@ -82,6 +93,9 @@ static NSString * const ABKViewModelKeyFontName = @"ABKViewModelKeyFontName";
 
     _use24HourClock = [userDefaults kdg_boolForKey:ABKViewModelKeyUse24HourClock
                                       defaultValue:defaultUse24HourClock];
+
+    _digital = [userDefaults kdg_boolForKey:ABKViewModelKeyDigital
+                                      defaultValue:defaultDigital];
 
     _fontName = [userDefaults kdg_stringForKey:ABKViewModelKeyFontName
                                       defaultValue:defaultFontName];

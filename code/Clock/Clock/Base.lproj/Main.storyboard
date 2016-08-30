@@ -19,15 +19,9 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D39-y2-gvd" customClass="ABKTimeView">
                                 <rect key="frame" x="40" y="40" width="520" height="520"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="use24HourDisplay" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xne-6S-xEp">
-                                <rect key="frame" x="278" y="536" width="44" height="44"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xne-6S-xEp">
+                                <rect key="frame" x="278" y="548" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="gLA-By-5SP"/>
                                     <constraint firstAttribute="width" constant="44" id="w6d-u9-RVw"/>
@@ -37,19 +31,34 @@
                                     <action selector="moreAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kEg-h8-nH0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Be9-fo-mVS">
+                                <rect key="frame" x="548" y="548" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="0qb-zo-4XG"/>
+                                    <constraint firstAttribute="height" constant="44" id="EJx-62-KAe"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="Info"/>
+                                <connections>
+                                    <action selector="moreAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NkQ-hs-XMt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="D39-y2-gvd" secondAttribute="bottom" constant="40" id="84u-Tu-eEN"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Be9-fo-mVS" secondAttribute="bottom" constant="8" id="Fud-xR-pD6"/>
                             <constraint firstItem="xne-6S-xEp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kwm-Bd-eVr"/>
                             <constraint firstAttribute="trailing" secondItem="D39-y2-gvd" secondAttribute="trailing" constant="40" id="PYK-bL-q7a"/>
                             <constraint firstItem="D39-y2-gvd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="40" id="RBP-Rb-iKf"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xne-6S-xEp" secondAttribute="bottom" constant="20" id="l0D-Xo-KMc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xne-6S-xEp" secondAttribute="bottom" constant="8" id="l0D-Xo-KMc"/>
                             <constraint firstItem="D39-y2-gvd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="moo-fe-Fhv"/>
+                            <constraint firstAttribute="trailing" secondItem="Be9-fo-mVS" secondAttribute="trailing" constant="8" id="sbM-zi-RbB"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="infoButton" destination="Be9-fo-mVS" id="fj5-8z-sp7"/>
                         <outlet property="moreButton" destination="xne-6S-xEp" id="WS2-hI-Xhr"/>
                         <outlet property="timeView" destination="D39-y2-gvd" id="HN7-dO-6G2"/>
                     </connections>
@@ -71,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oQ-Cx-KKs" userLabel="Settings View">
-                                <rect key="frame" x="140" y="100" width="320" height="340"/>
+                                <rect key="frame" x="140" y="80" width="320" height="380"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8y8-F0-Hip" userLabel="Use 24 Hour Display View">
                                         <rect key="frame" x="54" y="0.0" width="211" height="44"/>
@@ -186,20 +195,8 @@
                                             <constraint firstItem="iRM-np-IWo" firstAttribute="centerY" secondItem="s6o-eP-IyT" secondAttribute="centerY" id="w0w-99-Kg1"/>
                                         </constraints>
                                     </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWc-1e-Poy" userLabel="Instructions View">
-                                        <rect key="frame" x="8" y="138" width="304" height="138"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">Swipe up and down to restore and dim the screen brightness.
-
-Swipe left and right to change the font.
-
-Be sure to plug in your device as this app will not allow it to enter sleep mode.</string>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ptv-CH-qaP" userLabel="Buy Button">
-                                        <rect key="frame" x="35" y="296" width="250" height="44"/>
+                                        <rect key="frame" x="35" y="336" width="250" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="6WX-lO-XCC"/>
                                             <constraint firstAttribute="height" constant="44" id="p52-3J-Fnf"/>
@@ -211,6 +208,20 @@ Be sure to plug in your device as this app will not allow it to enter sleep mode
                                             <action selector="buildAction:" destination="79c-pu-ZHU" eventType="touchUpInside" id="fkK-sE-ii1"/>
                                         </connections>
                                     </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWc-1e-Poy" userLabel="Instructions View">
+                                        <rect key="frame" x="8" y="138" width="304" height="178"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <string key="text">Swipe up and down to restore and dim the screen brightness.
+
+Double tap to switch between analog and digital.
+
+Swipe left and right to change the font.
+
+Be sure to plug in your device as this app will not allow it to enter sleep mode.</string>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -223,7 +234,7 @@ Be sure to plug in your device as this app will not allow it to enter sleep mode
                                     <constraint firstAttribute="bottom" secondItem="Ptv-CH-qaP" secondAttribute="bottom" id="apm-oc-EpT"/>
                                     <constraint firstItem="Ptv-CH-qaP" firstAttribute="top" secondItem="fWc-1e-Poy" secondAttribute="bottom" constant="20" id="aqL-4f-pzm"/>
                                     <constraint firstItem="8y8-F0-Hip" firstAttribute="centerX" secondItem="4oQ-Cx-KKs" secondAttribute="centerX" id="i3s-z5-sG2"/>
-                                    <constraint firstAttribute="height" constant="340" id="nZy-6y-tXe"/>
+                                    <constraint firstAttribute="height" constant="380" id="nZy-6y-tXe"/>
                                     <constraint firstItem="fWc-1e-Poy" firstAttribute="top" secondItem="s6o-eP-IyT" secondAttribute="bottom" constant="20" id="o5t-Jo-Nkh"/>
                                     <constraint firstItem="s6o-eP-IyT" firstAttribute="centerX" secondItem="4oQ-Cx-KKs" secondAttribute="centerX" id="p8D-z2-e7f"/>
                                     <constraint firstItem="Ptv-CH-qaP" firstAttribute="centerX" secondItem="4oQ-Cx-KKs" secondAttribute="centerX" id="wUH-iv-KYh"/>
@@ -371,4 +382,7 @@ Be sure to plug in your device as this app will not allow it to enter sleep mode
             <point key="canvasLocation" x="412" y="1047"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Info" width="44" height="44"/>
+    </resources>
 </document>
