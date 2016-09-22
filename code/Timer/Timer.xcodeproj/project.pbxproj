@@ -9,20 +9,25 @@
 /* Begin PBXBuildFile section */
 		8CDE4153E283AD0BE10DA232 /* Pods_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE98138D7C5CA754760FF45F /* Pods_Timer.framework */; };
 		8EFEAA1F5FD819DD9041EFF1 /* Pods_TimerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7B51F0FA54E5FC2F7E037B /* Pods_TimerTests.framework */; };
+		EB14B3F51D91D9AD0051A946 /* FiveBells.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EB14B3F01D91D9AD0051A946 /* FiveBells.aiff */; };
+		EB14B3F61D91D9AD0051A946 /* FourBells.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EB14B3F11D91D9AD0051A946 /* FourBells.aiff */; };
+		EB14B3F71D91D9AD0051A946 /* OneBell.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EB14B3F21D91D9AD0051A946 /* OneBell.aiff */; };
+		EB14B3F81D91D9AD0051A946 /* ThreeBells.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EB14B3F31D91D9AD0051A946 /* ThreeBells.aiff */; };
+		EB14B3F91D91D9AD0051A946 /* TwoBells.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EB14B3F41D91D9AD0051A946 /* TwoBells.aiff */; };
+		EB14B3FD1D91D9F40051A946 /* KDGSoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = EB14B3FC1D91D9F40051A946 /* KDGSoundEffect.m */; };
+		EB62FC691D874E9000AED16D /* SessionEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62FC671D874E9000AED16D /* SessionEntity+CoreDataProperties.swift */; };
+		EB62FC6A1D874E9000AED16D /* SessionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62FC681D874E9000AED16D /* SessionEntity.swift */; };
+		EBD02E431D7617F700AF9FE8 /* KDGProgressDial.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD02E421D7617F700AF9FE8 /* KDGProgressDial.m */; };
+		EBD02E471D774DCC00AF9FE8 /* TimerEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD02E461D774DCC00AF9FE8 /* TimerEngine.swift */; };
 		EBEDC0A21D6E134500DD4CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC0A11D6E134500DD4CF0 /* AppDelegate.swift */; };
 		EBEDC0A71D6E134500DD4CF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBEDC0A51D6E134500DD4CF0 /* Main.storyboard */; };
 		EBEDC0AA1D6E134500DD4CF0 /* Timer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC0A81D6E134500DD4CF0 /* Timer.xcdatamodeld */; };
 		EBEDC0AC1D6E134500DD4CF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBEDC0AB1D6E134500DD4CF0 /* Assets.xcassets */; };
 		EBEDC0AF1D6E134500DD4CF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBEDC0AD1D6E134500DD4CF0 /* LaunchScreen.storyboard */; };
 		EBEDC0BA1D6E134500DD4CF0 /* TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC0B91D6E134500DD4CF0 /* TimerTests.swift */; };
-		EBEDC1401D6E1ABD00DD4CF0 /* KDGColorSwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC12A1D6E1ABD00DD4CF0 /* KDGColorSwatch.m */; };
-		EBEDC1411D6E1ABD00DD4CF0 /* KDGCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC12D1D6E1ABD00DD4CF0 /* KDGCustomView.m */; };
-		EBEDC1421D6E1ABD00DD4CF0 /* KDGPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC1301D6E1ABD00DD4CF0 /* KDGPresenter.m */; };
 		EBEDC1431D6E1ABD00DD4CF0 /* KDGUtilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC1331D6E1ABD00DD4CF0 /* KDGUtilities.mm */; };
-		EBEDC1441D6E1ABD00DD4CF0 /* NSUserDefaults+KDGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC1361D6E1ABD00DD4CF0 /* NSUserDefaults+KDGUtilities.m */; };
 		EBEDC1451D6E1ABD00DD4CF0 /* UIColor+KDGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC1391D6E1ABD00DD4CF0 /* UIColor+KDGUtilities.m */; };
 		EBEDC1461D6E1ABD00DD4CF0 /* UIFont+KDGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC13C1D6E1ABD00DD4CF0 /* UIFont+KDGUtilities.m */; };
-		EBEDC1471D6E1ABD00DD4CF0 /* UIStoryboard+KDGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC13F1D6E1ABD00DD4CF0 /* UIStoryboard+KDGViewController.m */; };
 		EBEDC14D1D6E1E8D00DD4CF0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC14C1D6E1E8D00DD4CF0 /* MainViewController.swift */; };
 		EBEDC1511D6E25A300DD4CF0 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC1501D6E25A300DD4CF0 /* DataModel.swift */; };
 		EBEDC1531D6E292700DD4CF0 /* TimerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC1521D6E292700DD4CF0 /* TimerEntity.swift */; };
@@ -30,7 +35,10 @@
 		EBEDC1571D6E2E1B00DD4CF0 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC1561D6E2E1B00DD4CF0 /* EditViewController.swift */; };
 		EBEDC1591D6E2E2900DD4CF0 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC1581D6E2E2900DD4CF0 /* ListViewController.swift */; };
 		EBEDC15B1D6E582100DD4CF0 /* TimerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC15A1D6E582100DD4CF0 /* TimerTableViewController.swift */; };
-		EBEDC15D1D6F3DF700DD4CF0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC15C1D6F3DF700DD4CF0 /* SettingsViewController.swift */; };
+		EBF28D7A1D7D065A00ADE0A4 /* TimeStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF28D791D7D065A00ADE0A4 /* TimeStringTests.swift */; };
+		EBF28DA01D7E250100ADE0A4 /* Color+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF28D9F1D7E250100ADE0A4 /* Color+AppColors.swift */; };
+		EBF28DA21D83527400ADE0A4 /* String+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF28DA11D83527400ADE0A4 /* String+Time.swift */; };
+		EBF28DA61D8369EF00ADE0A4 /* UIView+KDGAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF28DA51D8369EF00ADE0A4 /* UIView+KDGAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +58,18 @@
 		92EFF89EF99562220B13833D /* Pods-TimerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimerTests/Pods-TimerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B7B51F0FA54E5FC2F7E037B /* Pods_TimerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE98138D7C5CA754760FF45F /* Pods_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB14B3F01D91D9AD0051A946 /* FiveBells.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = FiveBells.aiff; sourceTree = "<group>"; };
+		EB14B3F11D91D9AD0051A946 /* FourBells.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = FourBells.aiff; sourceTree = "<group>"; };
+		EB14B3F21D91D9AD0051A946 /* OneBell.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = OneBell.aiff; sourceTree = "<group>"; };
+		EB14B3F31D91D9AD0051A946 /* ThreeBells.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = ThreeBells.aiff; sourceTree = "<group>"; };
+		EB14B3F41D91D9AD0051A946 /* TwoBells.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = TwoBells.aiff; sourceTree = "<group>"; };
+		EB14B3FB1D91D9F40051A946 /* KDGSoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGSoundEffect.h; sourceTree = "<group>"; };
+		EB14B3FC1D91D9F40051A946 /* KDGSoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGSoundEffect.m; sourceTree = "<group>"; };
+		EB62FC671D874E9000AED16D /* SessionEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SessionEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EB62FC681D874E9000AED16D /* SessionEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionEntity.swift; sourceTree = "<group>"; };
+		EBD02E411D7617F700AF9FE8 /* KDGProgressDial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGProgressDial.h; sourceTree = "<group>"; };
+		EBD02E421D7617F700AF9FE8 /* KDGProgressDial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGProgressDial.m; sourceTree = "<group>"; };
+		EBD02E461D774DCC00AF9FE8 /* TimerEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerEngine.swift; sourceTree = "<group>"; };
 		EBEDC09E1D6E134500DD4CF0 /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEDC0A11D6E134500DD4CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBEDC0A61D6E134500DD4CF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,22 +80,12 @@
 		EBEDC0B51D6E134500DD4CF0 /* TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEDC0B91D6E134500DD4CF0 /* TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTests.swift; sourceTree = "<group>"; };
 		EBEDC0BB1D6E134500DD4CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBEDC1291D6E1ABD00DD4CF0 /* KDGColorSwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGColorSwatch.h; sourceTree = "<group>"; };
-		EBEDC12A1D6E1ABD00DD4CF0 /* KDGColorSwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGColorSwatch.m; sourceTree = "<group>"; };
-		EBEDC12C1D6E1ABD00DD4CF0 /* KDGCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGCustomView.h; sourceTree = "<group>"; };
-		EBEDC12D1D6E1ABD00DD4CF0 /* KDGCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGCustomView.m; sourceTree = "<group>"; };
-		EBEDC12F1D6E1ABD00DD4CF0 /* KDGPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGPresenter.h; sourceTree = "<group>"; };
-		EBEDC1301D6E1ABD00DD4CF0 /* KDGPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGPresenter.m; sourceTree = "<group>"; };
 		EBEDC1321D6E1ABD00DD4CF0 /* KDGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGUtilities.h; sourceTree = "<group>"; };
 		EBEDC1331D6E1ABD00DD4CF0 /* KDGUtilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KDGUtilities.mm; sourceTree = "<group>"; };
-		EBEDC1351D6E1ABD00DD4CF0 /* NSUserDefaults+KDGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+KDGUtilities.h"; sourceTree = "<group>"; };
-		EBEDC1361D6E1ABD00DD4CF0 /* NSUserDefaults+KDGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+KDGUtilities.m"; sourceTree = "<group>"; };
 		EBEDC1381D6E1ABD00DD4CF0 /* UIColor+KDGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+KDGUtilities.h"; sourceTree = "<group>"; };
 		EBEDC1391D6E1ABD00DD4CF0 /* UIColor+KDGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+KDGUtilities.m"; sourceTree = "<group>"; };
 		EBEDC13B1D6E1ABD00DD4CF0 /* UIFont+KDGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+KDGUtilities.h"; sourceTree = "<group>"; };
 		EBEDC13C1D6E1ABD00DD4CF0 /* UIFont+KDGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+KDGUtilities.m"; sourceTree = "<group>"; };
-		EBEDC13E1D6E1ABD00DD4CF0 /* UIStoryboard+KDGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+KDGViewController.h"; sourceTree = "<group>"; };
-		EBEDC13F1D6E1ABD00DD4CF0 /* UIStoryboard+KDGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+KDGViewController.m"; sourceTree = "<group>"; };
 		EBEDC14C1D6E1E8D00DD4CF0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EBEDC14F1D6E244200DD4CF0 /* Timer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Timer-Bridging-Header.h"; sourceTree = "<group>"; };
 		EBEDC1501D6E25A300DD4CF0 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -84,7 +94,11 @@
 		EBEDC1561D6E2E1B00DD4CF0 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		EBEDC1581D6E2E2900DD4CF0 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		EBEDC15A1D6E582100DD4CF0 /* TimerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTableViewController.swift; sourceTree = "<group>"; };
-		EBEDC15C1D6F3DF700DD4CF0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EBF28D791D7D065A00ADE0A4 /* TimeStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeStringTests.swift; sourceTree = "<group>"; };
+		EBF28D9F1D7E250100ADE0A4 /* Color+AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+AppColors.swift"; sourceTree = "<group>"; };
+		EBF28DA11D83527400ADE0A4 /* String+Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Time.swift"; sourceTree = "<group>"; };
+		EBF28DA41D8369EF00ADE0A4 /* UIView+KDGAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KDGAnimation.h"; sourceTree = "<group>"; };
+		EBF28DA51D8369EF00ADE0A4 /* UIView+KDGAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KDGAnimation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +141,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EB14B3EF1D91D9AD0051A946 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				EB14B3F01D91D9AD0051A946 /* FiveBells.aiff */,
+				EB14B3F11D91D9AD0051A946 /* FourBells.aiff */,
+				EB14B3F21D91D9AD0051A946 /* OneBell.aiff */,
+				EB14B3F31D91D9AD0051A946 /* ThreeBells.aiff */,
+				EB14B3F41D91D9AD0051A946 /* TwoBells.aiff */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		EB14B3FA1D91D9F40051A946 /* KDGSoundEffect */ = {
+			isa = PBXGroup;
+			children = (
+				EB14B3FB1D91D9F40051A946 /* KDGSoundEffect.h */,
+				EB14B3FC1D91D9F40051A946 /* KDGSoundEffect.m */,
+			);
+			path = KDGSoundEffect;
+			sourceTree = "<group>";
+		};
+		EBD02E401D7617F700AF9FE8 /* KDGProgressDial */ = {
+			isa = PBXGroup;
+			children = (
+				EBD02E411D7617F700AF9FE8 /* KDGProgressDial.h */,
+				EBD02E421D7617F700AF9FE8 /* KDGProgressDial.m */,
+			);
+			path = KDGProgressDial;
+			sourceTree = "<group>";
+		};
 		EBEDC0951D6E134500DD4CF0 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +199,7 @@
 				EBEDC14F1D6E244200DD4CF0 /* Timer-Bridging-Header.h */,
 				EBEDC0A11D6E134500DD4CF0 /* AppDelegate.swift */,
 				EBEDC0AB1D6E134500DD4CF0 /* Assets.xcassets */,
+				EB14B3EF1D91D9AD0051A946 /* Sounds */,
 				EBEDC1481D6E1AF400DD4CF0 /* Storyboards */,
 				EBEDC1491D6E1E8D00DD4CF0 /* Models */,
 				EBEDC14A1D6E1E8D00DD4CF0 /* Support */,
@@ -168,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				EBEDC0B91D6E134500DD4CF0 /* TimerTests.swift */,
+				EBF28D791D7D065A00ADE0A4 /* TimeStringTests.swift */,
 				EBEDC0BB1D6E134500DD4CF0 /* Info.plist */,
 			);
 			path = TimerTests;
@@ -176,44 +222,15 @@
 		EBEDC1271D6E1ABD00DD4CF0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				EBEDC1281D6E1ABD00DD4CF0 /* KDGColorSwatch */,
-				EBEDC12B1D6E1ABD00DD4CF0 /* KDGCustomView */,
-				EBEDC12E1D6E1ABD00DD4CF0 /* KDGPresenter */,
+				EBD02E401D7617F700AF9FE8 /* KDGProgressDial */,
+				EB14B3FA1D91D9F40051A946 /* KDGSoundEffect */,
 				EBEDC1311D6E1ABD00DD4CF0 /* KDGUtilities */,
-				EBEDC1341D6E1ABD00DD4CF0 /* NSUserDefaults+ */,
 				EBEDC1371D6E1ABD00DD4CF0 /* UIColor+ */,
 				EBEDC13A1D6E1ABD00DD4CF0 /* UIFont+ */,
-				EBEDC13D1D6E1ABD00DD4CF0 /* UIStoryboard+ */,
+				EBF28DA31D8369EF00ADE0A4 /* UIView+ */,
 			);
 			name = Components;
 			path = ../Components;
-			sourceTree = "<group>";
-		};
-		EBEDC1281D6E1ABD00DD4CF0 /* KDGColorSwatch */ = {
-			isa = PBXGroup;
-			children = (
-				EBEDC1291D6E1ABD00DD4CF0 /* KDGColorSwatch.h */,
-				EBEDC12A1D6E1ABD00DD4CF0 /* KDGColorSwatch.m */,
-			);
-			path = KDGColorSwatch;
-			sourceTree = "<group>";
-		};
-		EBEDC12B1D6E1ABD00DD4CF0 /* KDGCustomView */ = {
-			isa = PBXGroup;
-			children = (
-				EBEDC12C1D6E1ABD00DD4CF0 /* KDGCustomView.h */,
-				EBEDC12D1D6E1ABD00DD4CF0 /* KDGCustomView.m */,
-			);
-			path = KDGCustomView;
-			sourceTree = "<group>";
-		};
-		EBEDC12E1D6E1ABD00DD4CF0 /* KDGPresenter */ = {
-			isa = PBXGroup;
-			children = (
-				EBEDC12F1D6E1ABD00DD4CF0 /* KDGPresenter.h */,
-				EBEDC1301D6E1ABD00DD4CF0 /* KDGPresenter.m */,
-			);
-			path = KDGPresenter;
 			sourceTree = "<group>";
 		};
 		EBEDC1311D6E1ABD00DD4CF0 /* KDGUtilities */ = {
@@ -223,15 +240,6 @@
 				EBEDC1331D6E1ABD00DD4CF0 /* KDGUtilities.mm */,
 			);
 			path = KDGUtilities;
-			sourceTree = "<group>";
-		};
-		EBEDC1341D6E1ABD00DD4CF0 /* NSUserDefaults+ */ = {
-			isa = PBXGroup;
-			children = (
-				EBEDC1351D6E1ABD00DD4CF0 /* NSUserDefaults+KDGUtilities.h */,
-				EBEDC1361D6E1ABD00DD4CF0 /* NSUserDefaults+KDGUtilities.m */,
-			);
-			path = "NSUserDefaults+";
 			sourceTree = "<group>";
 		};
 		EBEDC1371D6E1ABD00DD4CF0 /* UIColor+ */ = {
@@ -252,15 +260,6 @@
 			path = "UIFont+";
 			sourceTree = "<group>";
 		};
-		EBEDC13D1D6E1ABD00DD4CF0 /* UIStoryboard+ */ = {
-			isa = PBXGroup;
-			children = (
-				EBEDC13E1D6E1ABD00DD4CF0 /* UIStoryboard+KDGViewController.h */,
-				EBEDC13F1D6E1ABD00DD4CF0 /* UIStoryboard+KDGViewController.m */,
-			);
-			path = "UIStoryboard+";
-			sourceTree = "<group>";
-		};
 		EBEDC1481D6E1AF400DD4CF0 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +275,8 @@
 				EBEDC0A81D6E134500DD4CF0 /* Timer.xcdatamodeld */,
 				EBEDC1521D6E292700DD4CF0 /* TimerEntity.swift */,
 				EBEDC1541D6E293200DD4CF0 /* TimerEntity+CoreDataProperties.swift */,
+				EB62FC681D874E9000AED16D /* SessionEntity.swift */,
+				EB62FC671D874E9000AED16D /* SessionEntity+CoreDataProperties.swift */,
 				EBEDC1501D6E25A300DD4CF0 /* DataModel.swift */,
 			);
 			path = Models;
@@ -284,6 +285,9 @@
 		EBEDC14A1D6E1E8D00DD4CF0 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				EBD02E461D774DCC00AF9FE8 /* TimerEngine.swift */,
+				EBF28D9F1D7E250100ADE0A4 /* Color+AppColors.swift */,
+				EBF28DA11D83527400ADE0A4 /* String+Time.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -294,7 +298,6 @@
 				EBEDC1561D6E2E1B00DD4CF0 /* EditViewController.swift */,
 				EBEDC1581D6E2E2900DD4CF0 /* ListViewController.swift */,
 				EBEDC14C1D6E1E8D00DD4CF0 /* MainViewController.swift */,
-				EBEDC15C1D6F3DF700DD4CF0 /* SettingsViewController.swift */,
 				EBEDC15A1D6E582100DD4CF0 /* TimerTableViewController.swift */,
 			);
 			path = ViewControllers;
@@ -305,6 +308,15 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EBF28DA31D8369EF00ADE0A4 /* UIView+ */ = {
+			isa = PBXGroup;
+			children = (
+				EBF28DA41D8369EF00ADE0A4 /* UIView+KDGAnimation.h */,
+				EBF28DA51D8369EF00ADE0A4 /* UIView+KDGAnimation.m */,
+			);
+			path = "UIView+";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,7 +408,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBEDC0AF1D6E134500DD4CF0 /* LaunchScreen.storyboard in Resources */,
+				EB14B3F71D91D9AD0051A946 /* OneBell.aiff in Resources */,
+				EB14B3F81D91D9AD0051A946 /* ThreeBells.aiff in Resources */,
 				EBEDC0AC1D6E134500DD4CF0 /* Assets.xcassets in Resources */,
+				EB14B3F51D91D9AD0051A946 /* FiveBells.aiff in Resources */,
+				EB14B3F91D91D9AD0051A946 /* TwoBells.aiff in Resources */,
+				EB14B3F61D91D9AD0051A946 /* FourBells.aiff in Resources */,
 				EBEDC0A71D6E134500DD4CF0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,22 +527,24 @@
 			files = (
 				EBEDC0AA1D6E134500DD4CF0 /* Timer.xcdatamodeld in Sources */,
 				EBEDC14D1D6E1E8D00DD4CF0 /* MainViewController.swift in Sources */,
-				EBEDC1471D6E1ABD00DD4CF0 /* UIStoryboard+KDGViewController.m in Sources */,
 				EBEDC1461D6E1ABD00DD4CF0 /* UIFont+KDGUtilities.m in Sources */,
-				EBEDC1401D6E1ABD00DD4CF0 /* KDGColorSwatch.m in Sources */,
+				EBD02E471D774DCC00AF9FE8 /* TimerEngine.swift in Sources */,
+				EBF28DA21D83527400ADE0A4 /* String+Time.swift in Sources */,
 				EBEDC15B1D6E582100DD4CF0 /* TimerTableViewController.swift in Sources */,
+				EBF28DA61D8369EF00ADE0A4 /* UIView+KDGAnimation.m in Sources */,
 				EBEDC1571D6E2E1B00DD4CF0 /* EditViewController.swift in Sources */,
 				EBEDC1511D6E25A300DD4CF0 /* DataModel.swift in Sources */,
 				EBEDC1551D6E293200DD4CF0 /* TimerEntity+CoreDataProperties.swift in Sources */,
 				EBEDC1531D6E292700DD4CF0 /* TimerEntity.swift in Sources */,
-				EBEDC1421D6E1ABD00DD4CF0 /* KDGPresenter.m in Sources */,
-				EBEDC1411D6E1ABD00DD4CF0 /* KDGCustomView.m in Sources */,
+				EBF28DA01D7E250100ADE0A4 /* Color+AppColors.swift in Sources */,
 				EBEDC1451D6E1ABD00DD4CF0 /* UIColor+KDGUtilities.m in Sources */,
-				EBEDC1441D6E1ABD00DD4CF0 /* NSUserDefaults+KDGUtilities.m in Sources */,
 				EBEDC1431D6E1ABD00DD4CF0 /* KDGUtilities.mm in Sources */,
+				EB14B3FD1D91D9F40051A946 /* KDGSoundEffect.m in Sources */,
 				EBEDC1591D6E2E2900DD4CF0 /* ListViewController.swift in Sources */,
 				EBEDC0A21D6E134500DD4CF0 /* AppDelegate.swift in Sources */,
-				EBEDC15D1D6F3DF700DD4CF0 /* SettingsViewController.swift in Sources */,
+				EB62FC691D874E9000AED16D /* SessionEntity+CoreDataProperties.swift in Sources */,
+				EBD02E431D7617F700AF9FE8 /* KDGProgressDial.m in Sources */,
+				EB62FC6A1D874E9000AED16D /* SessionEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBEDC0BA1D6E134500DD4CF0 /* TimerTests.swift in Sources */,
+				EBF28D7A1D7D065A00ADE0A4 /* TimeStringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +682,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BarDownSoftware.Timer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Timer/Timer-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -675,6 +696,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BarDownSoftware.Timer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Timer/Timer-Bridging-Header.h";
 			};
 			name = Release;
 		};

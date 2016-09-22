@@ -45,13 +45,6 @@ class ListViewController: UIViewController {
 
     @IBAction func addAction(sender: UIButton) {
         print ("addAction...")
-
-        if let timerEntity = DataModel.sharedInstance.createTimerEntity(
-            "New Timer",
-            count: 3,
-            duration: 20) {
-            DataModel.sharedInstance.insertTimerEntity(timerEntity, index: 0)
-        }
     }
 
     @IBAction func editAction(sender: UIButton) {

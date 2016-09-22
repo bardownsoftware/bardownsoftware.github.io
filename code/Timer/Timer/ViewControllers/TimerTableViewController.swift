@@ -30,11 +30,6 @@ class TimerTableViewController: UITableViewController {
          */
 
         timerEntities = TimerEntity.MR_findAllSortedBy("order", ascending: true) as! [TimerEntity]
-
-        NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(TimerTableViewController.insertTimerEntityNotification),
-                                                         name: DataModel.InsertTimerEntityNotification,
-                                                         object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,23 +76,6 @@ class TimerTableViewController: UITableViewController {
         delegate?.timerTableViewController(self,
                                            didSelectEntity: timerEntity,
                                            atIndex: indexPath.row)
-    }
-
-    func insertTimerEntityNotification(notification: NSNotification) {
-        print("*** insertTimerEntityNotification ***")
-
-        if let userInfo = notification.userInfo as? Dictionary<String, AnyObject> {
-
-            let timerEntity = userInfo["entity"] as! TimerEntity
-            let index = userInfo["position"] as! Int
-
-            timerEntities.insert(timerEntity, atIndex: index)
-
-            let indexPath = NSIndexPath(forRow:index, inSection: 0)
-            tableView.insertRowsAtIndexPaths([indexPath],
-                                             withRowAnimation: .Automatic)
-            DataModel.sharedInstance.reorderTimerEntities(timerEntities)
-        }
     }
 
 }

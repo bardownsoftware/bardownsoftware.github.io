@@ -6,12 +6,8 @@
 #ifndef Timer_Bridging_Header_h
 #define Timer_Bridging_Header_h
 
-//#import "AppearanceEntity.h"
-//#import "BattleEntity.h"
-//#import "BeerEntity.h"
-//
-//#import "KDGAppInfo.h"
-//#import "KDGCustomView.h"
-//#import "UIColor+KDGUtilities.h"
+#import "KDGProgressDial.h"
+#import "KDGSoundEffect.h"
+#import "UIView+KDGAnimation.h"
 
 #endif /* Timer_Bridging_Header_h */
