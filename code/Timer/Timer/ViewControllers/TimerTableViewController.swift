@@ -21,15 +21,8 @@ class TimerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        /*
-        tableView.separatorStyle = .None
-        tableView.backgroundColor = UIColor.clearColor()
-        tableView.pagingEnabled = false
-        tableView.decelerationRate = UIScrollViewDecelerationRateFast
-        tableView.showsVerticalScrollIndicator = false
-         */
-
-        timerEntities = TimerEntity.MR_findAllSortedBy("order", ascending: true) as! [TimerEntity]
+        timerEntities = TimerEntity.MR_findAllSortedBy(
+            "order", ascending: true) as! [TimerEntity]
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,27 +38,19 @@ class TimerTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //        let cell = tableView.dequeueReusableCellWithIdentifier("BattleListTableViewCell",
-        //                                                               forIndexPath: indexPath) as! BattleListTableViewCell
-        let cell = tableView.dequeueReusableCellWithIdentifier("TimerTableViewCell",
-                                                               forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(
+            "TimerTableViewCell", forIndexPath: indexPath) as! TimerTableViewCell
 
         let timerEntity: TimerEntity = timerEntities[indexPath.row]
 
-        cell.textLabel!.text = timerEntity.name
+        let count: Int = (timerEntity.count?.integerValue)!
+        let duration: Int = (timerEntity.duration?.integerValue)!
+        let rest: Int = (timerEntity.rest?.integerValue)!
 
-        //cell.selectionStyle = .None
-
-        //cell.textLabel?.text = items[indexPath.row]
-        /*
-         cell.resultLabel.text = items[indexPath.row]
-         cell.expressionLabel.text = "exp"
-
-         cell.resultLabel.textColor = UIColor.whiteColor()
-         cell.expressionLabel.textColor = UIColor.grayColor()
-         cell.dateLabel.textColor = UIColor.grayColor()
-         cell.backgroundColor = UIColor.clearColor()
-         */
+        cell.nameLabel.text = timerEntity.name
+        cell.countLabel.text = "\(count)x"
+        cell.durationLabel.text = NSString.timeString(duration) as String
+        cell.restLabel.text = NSString.timeString(rest) as String
 
         return cell
     }
