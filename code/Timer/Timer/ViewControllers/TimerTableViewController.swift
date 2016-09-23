@@ -63,4 +63,57 @@ class TimerTableViewController: UITableViewController {
                                            atIndex: indexPath.row)
     }
 
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return timerEntities.count > 1
+    }
+
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return .Delete
+    }
+
+    override func tableView(tableView: UITableView,
+                            commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+                            forRowAtIndexPath indexPath: NSIndexPath) {
+
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            let timerEntity: TimerEntity = timerEntities[indexPath.row]
+
+            //  Check if deleting the active timer entity.
+            //
+            let activeTimerEntity = DataModel.sharedInstance.activeTimerEntity()
+            let chooseNewActiveTimer = timerEntity == activeTimerEntity
+
+            //  Delete the entity from the table view source and the DataModel.
+            //  Also remove the corresponding rows from the table view.
+            //
+            timerEntities.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            DataModel.sharedInstance.deleteTimerEntity(timerEntity)
+
+            //  Choose a new active timer if necessary.
+            //  The first one will do.
+            //
+            if chooseNewActiveTimer {
+                DataModel.sharedInstance.setActiveTimerEntity(timerEntities[0])
+            }
+        }
+    }
+
+    override func tableView(tableView: UITableView,
+                            moveRowAtIndexPath sourceIndexPath: NSIndexPath,
+                            toIndexPath destinationIndexPath: NSIndexPath) {
+
+        if sourceIndexPath.row == destinationIndexPath.row {
+            //  Nothing to do.
+            return
+        }
+
+        let timerEntity: TimerEntity = timerEntities[sourceIndexPath.row]
+
+        timerEntities.removeAtIndex(sourceIndexPath.row)
+        timerEntities.insert(timerEntity, atIndex: destinationIndexPath.row)
+
+        DataModel.sharedInstance.reorderTimerEntities(timerEntities)
+    }
+
 }

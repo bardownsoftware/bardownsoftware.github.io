@@ -14,6 +14,9 @@ protocol ListViewControllerDelegate: class {
 
 class ListViewController: UIViewController {
 
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
+
     weak var delegate: ListViewControllerDelegate?
 
     var timerTableViewController: TimerTableViewController?
@@ -25,10 +28,35 @@ class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        doneButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        doneButton.setTitleColor(UIColor.lightGrayColor(), forState: .Disabled)
+        editButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        editButton.setTitleColor(UIColor.lightGrayColor(), forState: .Disabled)
+
+        updateEditButton()
+
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: #selector(ListViewController.deleteTimerEntityNotification(_:)),
+            name: DataModel.DeleteTimerEntityNotification,
+            object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    func deleteTimerEntityNotification(sender: NSNotification) {
+        updateEditButton()
+    }
+
+    func updateEditButton() {
+        let count = timerTableViewController?.tableView(
+            (timerTableViewController?.tableView)!,
+            numberOfRowsInSection: 0)
+
+        editButton.enabled = count > 1
     }
 
     //  MARK: segue
@@ -44,11 +72,11 @@ class ListViewController: UIViewController {
     //  MARK: actions
 
     @IBAction func addAction(sender: UIButton) {
-        print ("addAction...")
     }
 
     @IBAction func editAction(sender: UIButton) {
-        print ("editAction...")
+        let isEditing = timerTableViewController?.editing
+        timerTableViewController?.setEditing(!isEditing!, animated: true)
     }
 }
 

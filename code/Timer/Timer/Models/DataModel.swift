@@ -9,6 +9,7 @@ import MagicalRecord
 class DataModel {
 
     static let InsertTimerEntityNotification = "DataModelInsertTimerEntityNotification"
+    static let DeleteTimerEntityNotification = "DataModelDeleteTimerEntityNotification"
 
     let kAppName: String
 
@@ -101,6 +102,10 @@ class DataModel {
     func deleteTimerEntity(timerEntity: TimerEntity) {
         timerEntity.MR_deleteEntity()
         save()
+
+        NSNotificationCenter.defaultCenter().postNotificationName(DataModel.DeleteTimerEntityNotification,
+                                                                  object: self,
+                                                                  userInfo: nil)
     }
 
     func insertTimerEntity(timerEntity: TimerEntity, index: Int) {
@@ -141,7 +146,7 @@ class DataModel {
             timerEntity.name = "Timer B"
             timerEntity.order = 2
             timerEntity.count = 5
-            timerEntity.duration = 5
+            timerEntity.duration = 10
             timerEntity.rest = 0
             timerEntity.delay = 5
             timerEntity.interval = 0

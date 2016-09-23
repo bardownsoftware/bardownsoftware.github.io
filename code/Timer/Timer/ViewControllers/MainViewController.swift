@@ -223,6 +223,11 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func unwindFromList(sender: UIStoryboardSegue) {
+
+        timerEntity = DataModel.sharedInstance.activeTimerEntity()
+        timerEngine.timerEntity = timerEntity
+        updateTimerInfo()
+
         [self .dismissViewControllerAnimated(true, completion: {
         })]
     }
