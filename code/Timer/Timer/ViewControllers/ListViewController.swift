@@ -4,12 +4,31 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
 
 protocol ListViewControllerDelegate: class {
 
-    func listViewController(viewController: ListViewController,
-                            didSelectEntity timerEntity: TimerEntity,
-                                            atIndex: Int)
+    func listViewController(_ viewController: ListViewController,
+                            didSelect timerEntity: TimerEntity,
+                            at index: Int)
 }
 
 class ListViewController: UIViewController {
@@ -29,17 +48,17 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        doneButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        doneButton.setTitleColor(UIColor.lightGrayColor(), forState: .Disabled)
-        editButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        editButton.setTitleColor(UIColor.lightGrayColor(), forState: .Disabled)
+        doneButton.setTitleColor(UIColor.black, for: .normal)
+        doneButton.setTitleColor(UIColor.lightGray, for: .disabled)
+        editButton.setTitleColor(UIColor.black, for: .normal)
+        editButton.setTitleColor(UIColor.lightGray, for: .disabled)
 
         updateEditButton()
 
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             self,
             selector: #selector(ListViewController.deleteTimerEntityNotification(_:)),
-            name: DataModel.DeleteTimerEntityNotification,
+            name: NSNotification.Name(rawValue: DataModel.DeleteTimerEntityNotification),
             object: nil)
     }
 
@@ -47,7 +66,7 @@ class ListViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    func deleteTimerEntityNotification(sender: NSNotification) {
+    func deleteTimerEntityNotification(_ sender: Notification) {
         updateEditButton()
     }
 
@@ -56,36 +75,36 @@ class ListViewController: UIViewController {
             (timerTableViewController?.tableView)!,
             numberOfRowsInSection: 0)
 
-        editButton.enabled = count > 1
+        editButton.isEnabled = count > 1
     }
 
     //  MARK: segue
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == "TimerTableSegue" {
-            timerTableViewController = (segue.destinationViewController as! TimerTableViewController)
+            timerTableViewController = (segue.destination as! TimerTableViewController)
             timerTableViewController!.delegate = self;
         }
     }
 
     //  MARK: actions
 
-    @IBAction func addAction(sender: UIButton) {
+    @IBAction func addAction(_ sender: UIButton) {
     }
 
-    @IBAction func editAction(sender: UIButton) {
-        let isEditing = timerTableViewController?.editing
+    @IBAction func editAction(_ sender: UIButton) {
+        let isEditing = timerTableViewController?.isEditing
         timerTableViewController?.setEditing(!isEditing!, animated: true)
     }
 }
 
 extension ListViewController: TimerTableViewControllerDelegate {
 
-    func timerTableViewController(viewController: TimerTableViewController,
-                                  didSelectEntity timerEntity: TimerEntity,
-                                                  atIndex: Int) {
-        delegate?.listViewController(self, didSelectEntity: timerEntity, atIndex: atIndex)
+    func timerTableViewController(_ viewController: TimerTableViewController,
+                                  didSelect timerEntity: TimerEntity,
+                                                  at index: Int) {
+        delegate?.listViewController(self, didSelect: timerEntity, at: index)
     }
 }
 

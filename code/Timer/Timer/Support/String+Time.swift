@@ -24,7 +24,7 @@ extension NSString {
             }
         }
         
-        return timeString
+        return timeString as NSString
     }
 
 }

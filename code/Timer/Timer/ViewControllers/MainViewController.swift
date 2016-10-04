@@ -49,34 +49,34 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         progressDial.progress = 0.0;
-        progressDial.userInteractionEnabled = false;
+        progressDial.isUserInteractionEnabled = false;
 
-        countLabel.textColor = UIColor.readyColor()
+        countLabel.textColor = UIColor.ready()
 
-        durationLabel.textColor = UIColor.goColor()
-        restLabel.textColor = UIColor.restColor()
+        durationLabel.textColor = UIColor.go()
+        restLabel.textColor = UIColor.rest()
 
         timerEntity = DataModel.sharedInstance.activeTimerEntity()
 
         timerEngine.timerEntity = timerEntity
         timerEngine.delegate = self
 
-        startButton.selected = false
-        startButton.setTitleColor(UIColor.goColor(), forState: .Normal)
-        startButton.setTitleColor(UIColor.appRedColor(), forState: .Selected)
+        startButton.isSelected = false
+        startButton.setTitleColor(UIColor.go(), for: .normal)
+        startButton.setTitleColor(UIColor.appRed(), for: .selected)
 
-        resetButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        resetButton.setTitleColor(UIColor.lightGrayColor(), forState: .Disabled)
+        resetButton.setTitleColor(UIColor.black, for: .normal)
+        resetButton.setTitleColor(UIColor.lightGray, for: .disabled)
 
         updateTimerInfo()
         updateToolbar()
         updateSoundButton()
 
-        resetButton.enabled = false
+        resetButton.isEnabled = false
         hideTimeLabel()
 
-        counterLabel.hidden = true
-        counterLabel.textColor = UIColor.readyColor()
+        counterLabel.isHidden = true
+        counterLabel.textColor = UIColor.ready()
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,40 +85,40 @@ class MainViewController: UIViewController {
 
     func getReady() {
         setStateText("Ready")
-        stateLabel.textColor = UIColor.readyColor()
+        stateLabel.textColor = UIColor.ready()
     }
 
     func updateTimerInfo() {
-        let count: Int = (timerEntity!.count?.integerValue)!
-        let duration: Int = (timerEntity!.duration?.integerValue)!
-        let rest: Int = (timerEntity!.rest?.integerValue)!
+        let count: Int = (timerEntity!.count?.intValue)!
+        let duration: Int = (timerEntity!.duration?.intValue)!
+        let rest: Int = (timerEntity!.rest?.intValue)!
 
         titleLabel.text = timerEntity!.name
 
         countLabel.text = "\(count)x"
-        durationLabel.text = NSString.timeString(duration) as String
-        restLabel.text = NSString.timeString(rest) as String
+        durationLabel.text = NSString.timeString(seconds: duration) as String
+        restLabel.text = NSString.timeString(seconds: rest) as String
 
         getReady()
     }
 
     func updateToolbar() {
-        let enabled = timerEngine.timerState == .Idle
-        listButton.enabled = enabled
-        editButton.enabled = enabled
-        addButton.enabled = enabled
+        let enabled = timerEngine.timerState == .idle
+        listButton.isEnabled = enabled
+        editButton.isEnabled = enabled
+        addButton.isEnabled = enabled
     }
 
     func updateSoundButton() {
-        soundButton.selected = !DataModel.sharedInstance.isSoundOn()
+        soundButton.isSelected = !DataModel.sharedInstance.isSoundOn()
     }
 
     func running() -> Bool {
-        return startButton.selected
+        return startButton.isSelected
     }
 
-    func setRunning(running: Bool) {
-        startButton.selected = running
+    func setRunning(_ running: Bool) {
+        startButton.isSelected = running
 
         if running {
             timerEngine.start()
@@ -128,25 +128,25 @@ class MainViewController: UIViewController {
     }
 
     func showTimeLabel() {
-        UIView.kdg_animateWithDuration(1.0,
+        UIView.kdg_animate(withDuration: 1.0,
                                        delay: 0.0,
-                                       options: .CurveEaseInOut,
+                                       options: .curveEaseInOut,
                                        views: [timeLabel],
-                                       style: KDGAnimationStyle.FadeIn) { (finished) in
+                                       style: .fadeIn) { (finished) in
         }
     }
 
     func hideTimeLabel() {
-        timeLabel.hidden = true
+        timeLabel.isHidden = true
     }
 
     func showCounter() {
         self.hidingCounter = false
-        UIView.kdg_animateWithDuration(0.4,
+        UIView.kdg_animate(withDuration: 0.4,
                                        delay: 0.0,
-                                       options: .CurveEaseInOut,
+                                       options: .curveEaseInOut,
                                        views: [counterLabel],
-                                       style: KDGAnimationStyle.FadeIn) { (finished) in
+                                       style: .fadeIn) { (finished) in
         }
     }
 
@@ -154,19 +154,19 @@ class MainViewController: UIViewController {
         let hide = !hidingCounter
         hidingCounter = true
         if hide {
-            UIView.kdg_animateWithDuration(0.15,
+            UIView.kdg_animate(withDuration: 0.15,
                                            delay: 0.0,
-                                           options: .CurveEaseInOut,
+                                           options: .curveEaseInOut,
                                            views: [counterLabel],
-                                           style: KDGAnimationStyle.FadeOut) { (finished) in
+                                           style: .fadeOut) { (finished) in
             }
         }
     }
 
-    func setStateText(text: String) {
+    func setStateText(_ text: String) {
         if stateLabel.text != text {
             stateLabel.text = text
-            UIView.kdg_scaleView(stateLabel,
+            UIView.kdg_scale(stateLabel,
                                  scaleDuration: 0.2,
                                  returnDuration: 0.2,
                                  delay: 0.0,
@@ -177,11 +177,11 @@ class MainViewController: UIViewController {
         }
     }
 
-    func setTimeInterval(interval: Int) {
-        timeLabel.text = NSString.timeString(interval) as String
+    func set(timeInterval: Int) {
+        timeLabel.text = NSString.timeString(seconds: timeInterval) as String
     }
 
-    func playSoundEffect(soundEffect: KDGSoundEffect) {
+    func play(soundEffect: KDGSoundEffect) {
         if DataModel.sharedInstance.isSoundOn() {
             soundEffect.play()
         }
@@ -189,14 +189,14 @@ class MainViewController: UIViewController {
 
     //  MARK: segue
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == "ListSegue" {
-            listViewController = (segue.destinationViewController as! ListViewController)
+            listViewController = (segue.destination as! ListViewController)
             listViewController!.delegate = self;
 
         } else if segue.identifier == "EditSegue" {
-            editViewController = (segue.destinationViewController as! EditViewController)
+            editViewController = (segue.destination as! EditViewController)
             editViewController!.timerEntity = timerEntity
 
         } else if segue.identifier == "AddSegue" {
@@ -208,49 +208,63 @@ class MainViewController: UIViewController {
                 delay: 5) {
                 DataModel.sharedInstance.insertTimerEntity(newTimerEntity, index: 0)
                 timerEntity = newTimerEntity
-                editViewController = (segue.destinationViewController as! EditViewController)
+                editViewController = (segue.destination as! EditViewController)
                 editViewController!.timerEntity = timerEntity
             }
         }
     }
 
-    @IBAction func unwindFromEdit(sender: UIStoryboardSegue) {
+    @IBAction func unwindFromEdit(_ sender: UIStoryboardSegue) {
         DataModel.sharedInstance.save()
         updateTimerInfo()
 
-        [self .dismissViewControllerAnimated(true, completion: {
-        })]
+        dismiss(animated: true) { 
+            //
+        }
+
+        /*
+        [self .dismiss(animated: true, completion: {
+        })]*/
     }
 
-    @IBAction func unwindFromList(sender: UIStoryboardSegue) {
+    @IBAction func unwindFromList(_ sender: UIStoryboardSegue) {
 
         timerEntity = DataModel.sharedInstance.activeTimerEntity()
         timerEngine.timerEntity = timerEntity
         updateTimerInfo()
 
-        [self .dismissViewControllerAnimated(true, completion: {
+        dismiss(animated: true) { 
+            //
+        }
+        /*
+        [self .dismiss(animated: true, completion: {
         })]
+ */
     }
 
-    @IBAction func unwindFromSettings(sender: UIStoryboardSegue) {
-        [self .dismissViewControllerAnimated(true, completion: {
-        })]
+    @IBAction func unwindFromSettings(_ sender: UIStoryboardSegue) {
+        dismiss(animated: true) { 
+            //
+        }
+        /*
+        [self .dismiss(animated: true, completion: {
+        })]*/
     }
 
     //  MARK: actions
 
-    @IBAction func startAction(sender: UIButton) {
+    @IBAction func startAction(_ sender: UIButton) {
         if running() {
             setRunning(false)
-            resetButton.enabled = true
+            resetButton.isEnabled = true
         } else {
             setRunning(true)
-            resetButton.enabled = false
+            resetButton.isEnabled = false
         }
         updateToolbar()
     }
 
-    @IBAction func resetAction(sender: UIButton) {
+    @IBAction func resetAction(_ sender: UIButton) {
         setRunning(false)
         timerEngine.reset()
 
@@ -259,55 +273,55 @@ class MainViewController: UIViewController {
         progressDial.progress = 0
         hideTimeLabel()
         hideCounter()
-        resetButton.enabled = false
+        resetButton.isEnabled = false
 
         updateToolbar()
     }
 
-    @IBAction func soundAction(sender: UIButton) {
+    @IBAction func soundAction(_ sender: UIButton) {
         let soundOn = DataModel.sharedInstance.isSoundOn()
-        DataModel.sharedInstance.setSoundOn(!soundOn)
+        DataModel.sharedInstance.set(soundOn: !soundOn)
         updateSoundButton()
     }
 
-    func doneAction(sender: AnyObject) {
+    func doneAction(_ sender: AnyObject) {
         getReady()
 
         progressDial.progress = 0
         hideTimeLabel()
-        resetButton.enabled = false
+        resetButton.isEnabled = false
     }
 }
 
 extension MainViewController: TimerEngineDelegate {
 
-    func timerEngineDidBegin(timerEngine: TimerEngine,
-                             state: TimerEngineState,
-                             round: Int,
-                             duration: NSTimeInterval) {
+    func timerEngine(_ timerEngine: TimerEngine,
+                     didBegin state: TimerEngineState,
+                     round: Int,
+                     duration: TimeInterval) {
 
-        if .GetReady != state {
+        if .getReady != state {
             showTimeLabel()
         }
 
-        if .GetReady != state {
+        if .getReady != state {
             setStateText("\(state)")
         }
 
-        let count: Int = (timerEntity!.count?.integerValue)!
+        let count: Int = (timerEntity!.count?.intValue)!
         counterLabel.text = "\(round + 1)/\(count)"
 
-        if .Go == state {
+        if .go == state {
             showCounter()
         }
 
-        var color = UIColor.readyColor()
-        if state == .GetReady {
-            color = UIColor.blackColor()
-        } else if state == .Go {
-            color = UIColor.goColor()
-        } else if state == .Rest {
-            color = UIColor.restColor()
+        var color = UIColor.ready()
+        if state == .getReady {
+            color = UIColor.black
+        } else if state == .go {
+            color = UIColor.go()
+        } else if state == .rest {
+            color = UIColor.rest()
         }
         stateLabel.textColor = color
 
@@ -315,59 +329,59 @@ extension MainViewController: TimerEngineDelegate {
         progressDial.progress = 0
     }
 
-    func timerEngineDidProgress(timerEngine: TimerEngine,
-                                state: TimerEngineState,
-                                round: Int,
-                                progress: Float,
-                                duration: NSTimeInterval) {
+    func timerEngine(_ timerEngine: TimerEngine,
+                     didProgress progress: Float,
+                     state: TimerEngineState,
+                     round: Int,
+                     duration: TimeInterval) {
 
-        if .GetReady != state {
+        if .getReady != state {
             progressDial.progress = CGFloat(progress)
         }
 
         let timeRemaining: Double = duration * (1.0 - Double(progress))
         if timeRemaining < 0.2 {
-            setTimeInterval(0)
-            if .Go == state {
+            set(timeInterval: 0)
+            if .go == state {
                 hideCounter()
             }
 
         } else {
-            let number = NSDecimalNumber(double: duration * (1.0 - Double(progress)))
+            let number = NSDecimalNumber(value: duration * (1.0 - Double(progress)) as Double)
 
             let roundingBehaviour
-                = NSDecimalNumberHandler(roundingMode: .RoundUp,
+                = NSDecimalNumberHandler(roundingMode: .up,
                                          scale: 0,
                                          raiseOnExactness: false,
                                          raiseOnOverflow: false,
                                          raiseOnUnderflow: false,
                                          raiseOnDivideByZero: false)
             let roundedNumber
-                = number.decimalNumberByRoundingAccordingToBehavior(roundingBehaviour)
+                = number.rounding(accordingToBehavior: roundingBehaviour)
 
-            setTimeInterval(roundedNumber.integerValue)
+            set(timeInterval: roundedNumber.intValue)
 
-            if .GetReady == state {
-                setStateText("\(roundedNumber.integerValue)")
+            if .getReady == state {
+                setStateText("\(roundedNumber.intValue)")
             }
         }
     }
 
-    func timerEngineDidEnd(timerEngine: TimerEngine,
-                           state: TimerEngineState,
-                           round: Int,
-                           duration: NSTimeInterval) {
+    func timerEngine(_ timerEngine: TimerEngine,
+                     didEnd state: TimerEngineState,
+                     round: Int,
+                     duration: TimeInterval) {
 
-        let count: Int = (timerEntity!.count?.integerValue)!
+        let count: Int = (timerEntity!.count?.intValue)!
 
-        if .GetReady == state {
-            playSoundEffect(startRoundSoundEffect)
+        if .getReady == state {
+            play(soundEffect: startRoundSoundEffect!)
         }
 
-        if .Go == state && round == count - 1 {
-            playSoundEffect(doneSoundEffect)
+        if .go == state && round == count - 1 {
+            play(soundEffect: doneSoundEffect!)
             setStateText("Done")
-            stateLabel.textColor = UIColor.readyColor()
+            stateLabel.textColor = UIColor.ready()
             setRunning(false)
             timerEngine.reset()
             progressDial.progress = 0
@@ -375,38 +389,39 @@ extension MainViewController: TimerEngineDelegate {
 
             updateToolbar()
 
-            performSelector(#selector(MainViewController.doneAction(_:)),
-                            withObject: self,
+            perform(#selector(MainViewController.doneAction(_:)),
+                            with: self,
                             afterDelay: 2)
 
-        } else if .Go == state {
-            let rest: Int = (timerEntity!.rest?.integerValue)!
+        } else if .go == state {
+            let rest: Int = (timerEntity!.rest?.intValue)!
             if rest > 0 {
-                playSoundEffect(endRoundSoundEffect)
+                play(soundEffect: endRoundSoundEffect!)
 
             } else {
-                playSoundEffect(startRoundSoundEffect)
+                play(soundEffect: startRoundSoundEffect!)
             }
 
-        } else if .Rest == state {
-            playSoundEffect(startRoundSoundEffect)
+        } else if .rest == state {
+            play(soundEffect: startRoundSoundEffect!)
         }
     }
 }
 
 extension MainViewController: ListViewControllerDelegate {
 
-    func listViewController(viewController: ListViewController,
-                            didSelectEntity timerEntity: TimerEntity,
-                                            atIndex: Int) {
+    func listViewController(_ viewController: ListViewController,
+                            didSelect timerEntity: TimerEntity,
+                            at index: Int) {
         self.timerEntity = timerEntity
         DataModel.sharedInstance.setActiveTimerEntity(timerEntity)
         timerEngine.timerEntity = timerEntity
 
         updateTimerInfo()
 
-        [self .dismissViewControllerAnimated(true, completion: {
-        })]
+        dismiss(animated: true) {
+            //
+        }
     }
 }
 

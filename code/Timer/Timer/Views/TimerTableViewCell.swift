@@ -15,10 +15,10 @@ class TimerTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        nameLabel.textColor = UIColor.blackColor()
-        countLabel.textColor = UIColor.readyColor()
-        durationLabel.textColor = UIColor.goColor()
-        restLabel.textColor = UIColor.restColor()
+        nameLabel.textColor = UIColor.black
+        countLabel.textColor = UIColor.ready()
+        durationLabel.textColor = UIColor.go()
+        restLabel.textColor = UIColor.rest()
     }
 
 }

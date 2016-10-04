@@ -84,7 +84,7 @@ class TimerTests: XCTestCase {
 
         for (intervals, expectedState, expectedRound) in testValues {
             for interval in intervals {
-                let (state, round) = timerEngine.getState(interval)
+                let (state, round) = timerEngine.getState(fromInterval: interval)
                 XCTAssert(state == expectedState && round == expectedRound)
             }
         }
@@ -94,47 +94,47 @@ class TimerTests: XCTestCase {
 
     func testTimerEngine() {
 
-        assertTimer(1, duration: 50, rest: 0, delay: 0,
+        assertTimer(count: 1, duration: 50, rest: 0, delay: 0,
                     totalTime: 50,
                     testValues: [
-                        ([-0.01, 50.01], .Idle, 0),
-                        ([0, 0.01, 49.99, 50], .Go, 0),
+                        ([-0.01, 50.01], .idle, 0),
+                        ([0, 0.01, 49.99, 50], .go, 0),
             ])
 
-        assertTimer(10, duration: 10, rest: 0, delay: 0,
+        assertTimer(count: 10, duration: 10, rest: 0, delay: 0,
                     totalTime: 100,
                     testValues: [
-                        ([-0.01, 100.01], .Idle, 0),
-                        ([0, 0.01, 9.99, 10], .Go, 0),
-                        ([10.01, 19.99, 20], .Go, 1),
-                        ([20.01, 29.99, 30], .Go, 2),
-                        ([30.01, 39.99, 40], .Go, 3),
-                        ([40.01, 49.99, 50], .Go, 4),
-                        ([50.01, 59.99, 60], .Go, 5),
-                        ([60.01, 69.99, 70], .Go, 6),
-                        ([70.01, 79.99, 80], .Go, 7),
-                        ([80.01, 89.99, 90], .Go, 8),
-                        ([90.01, 99.99, 100], .Go, 9),
+                        ([-0.01, 100.01], .idle, 0),
+                        ([0, 0.01, 9.99, 10], .go, 0),
+                        ([10.01, 19.99, 20], .go, 1),
+                        ([20.01, 29.99, 30], .go, 2),
+                        ([30.01, 39.99, 40], .go, 3),
+                        ([40.01, 49.99, 50], .go, 4),
+                        ([50.01, 59.99, 60], .go, 5),
+                        ([60.01, 69.99, 70], .go, 6),
+                        ([70.01, 79.99, 80], .go, 7),
+                        ([80.01, 89.99, 90], .go, 8),
+                        ([90.01, 99.99, 100], .go, 9),
             ])
 
-        assertTimer(3, duration: 20, rest: 5, delay: 5,
+        assertTimer(count: 3, duration: 20, rest: 5, delay: 5,
                     totalTime: 75,
                     testValues: [
-                        ([-10.0, -1.9, -0.01, 75.01, 80], .Idle, 0),
-                        ([0, 0.01, 4.99, 5], .GetReady, 0),
-                        ([5.01, 24.99, 25], .Go, 0),
-                        ([25.01, 29.99, 30], .Rest, 0),
-                        ([30.01, 49.99, 50.0], .Go, 1),
-                        ([50.01, 54.99, 55], .Rest, 1),
-                        ([55.01, 74.99, 75], .Go, 2),
+                        ([-10.0, -1.9, -0.01, 75.01, 80], .idle, 0),
+                        ([0, 0.01, 4.99, 5], .getReady, 0),
+                        ([5.01, 24.99, 25], .go, 0),
+                        ([25.01, 29.99, 30], .rest, 0),
+                        ([30.01, 49.99, 50.0], .go, 1),
+                        ([50.01, 54.99, 55], .rest, 1),
+                        ([55.01, 74.99, 75], .go, 2),
             ])
 
-        assertTimer(1, duration: 60, rest: 0, delay: 10,
+        assertTimer(count: 1, duration: 60, rest: 0, delay: 10,
                     totalTime: 70,
                     testValues: [
-                        ([-0.01, 70.01], .Idle, 0),
-                        ([0, 0.01, 9.99, 10], .GetReady, 0),
-                        ([10.01, 69.99, 70], .Go, 0),
+                        ([-0.01, 70.01], .idle, 0),
+                        ([0, 0.01, 9.99, 10], .getReady, 0),
+                        ([10.01, 69.99, 70], .go, 0),
             ])
     }
     

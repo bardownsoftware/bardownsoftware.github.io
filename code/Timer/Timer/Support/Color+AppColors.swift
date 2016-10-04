@@ -17,15 +17,15 @@ extension UIColor {
         var blue:  CGFloat = 0.0
         var alpha: CGFloat = 1.0
 
-        let characterSet = NSCharacterSet.whitespaceCharacterSet()
+        let characterSet = CharacterSet.whitespaces
 
-        let trimmed = string.stringByTrimmingCharactersInSet(characterSet)
-        let reduced = trimmed.stringByReplacingOccurrencesOfString(
-            "\\s+",
-            withString: " ",
-            options: .RegularExpressionSearch)
+        let trimmed = string.trimmingCharacters(in: characterSet)
+        let reduced = trimmed.replacingOccurrences(
+            of: "\\s+",
+            with: " ",
+            options: .regularExpression)
 
-        let components = reduced.componentsSeparatedByCharactersInSet(characterSet)
+        let components = reduced.components(separatedBy: characterSet)
         if 4 == components.count {
             red   = CGFloat(Int(components[0]) ?? 0) / 255
             green = CGFloat(Int(components[1]) ?? 0) / 255
@@ -51,13 +51,13 @@ extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
 
-    class func appLightGrayColor() -> UIColor { return UIColor(r:230, g:230, b:230, a:255) }
-    class func appRedColor      () -> UIColor { return UIColor(r:222, g: 70, b:106, a:255) }
-    class func appGreenColor    () -> UIColor { return UIColor(r:  0, g:228, b:106, a:255) }
-    class func appBlueColor     () -> UIColor { return UIColor(r: 60, g:118, b:212, a:255) }
-    class func appOrangeColor   () -> UIColor { return UIColor(r:255, g:147, b:  0, a:255) }
+    class func appLightGray() -> UIColor { return UIColor(r:230, g:230, b:230, a:255) }
+    class func appRed      () -> UIColor { return UIColor(r:222, g: 70, b:106, a:255) }
+    class func appGreen    () -> UIColor { return UIColor(r:  0, g:228, b:106, a:255) }
+    class func appBlue     () -> UIColor { return UIColor(r: 60, g:118, b:212, a:255) }
+    class func appOrange   () -> UIColor { return UIColor(r:255, g:147, b:  0, a:255) }
 
-    class func readyColor () -> UIColor { return appBlueColor() }
-    class func goColor    () -> UIColor { return appGreenColor() }
-    class func restColor  () -> UIColor { return appOrangeColor() }
+    class func ready () -> UIColor { return appBlue() }
+    class func go    () -> UIColor { return appGreen() }
+    class func rest  () -> UIColor { return appOrange() }
 }

@@ -32,7 +32,7 @@ class TimeStringTests: XCTestCase {
         ]
 
         for (interval, expectedString) in testValues {
-            let result = NSString.timeString(interval) as String
+            let result = NSString.timeString(seconds: interval) as String
             XCTAssert(result == expectedString, "# expected \(expectedString) got \(result)")
         }
     }

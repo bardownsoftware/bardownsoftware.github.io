@@ -60,25 +60,25 @@ class EditViewController: UIViewController {
 
         activeView = countView
 
-        countLabel.textColor = UIColor.readyColor()
-        durationLabel.textColor = UIColor.goColor()
-        restLabel.textColor = UIColor.restColor()
+        countLabel.textColor = UIColor.ready()
+        durationLabel.textColor = UIColor.go()
+        restLabel.textColor = UIColor.rest()
 
         setUpSelectView()
 
         nameField.text = timerEntity?.name
         nameField.delegate = self
 
-        valueLabel.textColor = UIColor.readyColor()
+        valueLabel.textColor = UIColor.ready()
 
         updateInfo()
-        updateDial(false)
+        updateDial(animated: false)
         updateValueLabel()
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        updateActiveView(true)
+        updateActiveView(firstTime: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,18 +86,18 @@ class EditViewController: UIViewController {
     }
 
     func setUpSelectView() {
-        selectView.backgroundColor = UIColor.clearColor()
-        selectView.hidden = true
+        selectView.backgroundColor = UIColor.clear
+        selectView.isHidden = true
 
         let borderWidth: CGFloat = 0.5
-        let borderRect = CGRectInset(selectView.bounds, 1.0, 1.0)
+        let borderRect = selectView.bounds.insetBy(dx: 1.0, dy: 1.0)
         let borderView = UIView(frame: borderRect)
-        borderView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        borderView.layer.borderColor = UIColor.lightGray.cgColor
         borderView.layer.borderWidth = borderWidth
         borderView.layer.cornerRadius = 0.5 * borderView.bounds.size.width
         selectView.addSubview(borderView)
 
-        view.insertSubview(selectView, atIndex: 0)
+        view.insertSubview(selectView, at: 0)
     }
 
     func isNameOkay(name: String) -> Bool {
@@ -110,8 +110,8 @@ class EditViewController: UIViewController {
         let duration = (timerEntity?.getDuration())!
         let rest = (timerEntity?.getRest())!
 
-        let durationString: String = NSString.timeString(duration) as String
-        let restString: String = NSString.timeString(rest) as String
+        let durationString: String = NSString.timeString(seconds: duration) as String
+        let restString: String = NSString.timeString(seconds: rest) as String
 
         titleLabel.text = title
         countLabel.text = "\(count)x"
@@ -122,46 +122,45 @@ class EditViewController: UIViewController {
     func updateActiveView(firstTime: Bool = false) {
 
         if activeView == countView {
-            valueLabel.textColor = UIColor.readyColor()
+            valueLabel.textColor = UIColor.ready()
             progressDial.numberOfStops = countValues.count
 
         } else if activeView == durationView {
-            valueLabel.textColor = UIColor.goColor()
+            valueLabel.textColor = UIColor.go()
             progressDial.numberOfStops = durationValues.count
 
         } else if activeView == restView {
-            valueLabel.textColor = UIColor.restColor()
+            valueLabel.textColor = UIColor.rest()
             progressDial.numberOfStops = restValues.count
         }
 
-        activateView(activeView!, firstTime: firstTime)
+        activate(view: activeView!, firstTime: firstTime)
     }
 
-    func activateView(viewToActivate: UIView, firstTime: Bool = true) {
+    func activate(view: UIView, firstTime: Bool = true) {
 
-        var point = view.convertPoint(viewToActivate.center,
-                                      fromView: viewToActivate.superview)
+        var point = view.convert(view.center, from: view.superview)
 
         point.y = point.y + activeViewOffset
 
-        self.selectView.hidden = false
+        self.selectView.isHidden = false
 
         if firstTime {
             self.selectView.center = point
             self.selectView.alpha = 0.0
 
-            UIView.animateWithDuration(0.1,
+            UIView.animate(withDuration: 0.1,
                                        delay: 0.0,
-                                       options: .CurveEaseOut,
+                                       options: .curveEaseOut,
                                        animations: {
                                         self.selectView.alpha = 1.0
             }) { (finished) in
             }
 
         } else {
-            UIView.animateWithDuration(0.2,
+            UIView.animate(withDuration: 0.2,
                                        delay: 0.0,
-                                       options: .CurveEaseInOut,
+                                       options: .curveEaseOut,
                                        animations: {
                                         self.selectView.center = point
             }) { (finished) in
@@ -175,19 +174,19 @@ class EditViewController: UIViewController {
 
         if activeView == countView {
             let count = (timerEntity?.getCount())!
-            if let index = countValues.indexOf(count) {
+            if let index = countValues.index(of: count) {
                 value = CGFloat(index) / CGFloat(countValues.count)
             }
 
         } else if activeView == durationView {
             let duration = (timerEntity?.getDuration())!
-            if let index = durationValues.indexOf(duration) {
+            if let index = durationValues.index(of: duration) {
                 value = CGFloat(index) / CGFloat(durationValues.count)
             }
 
         } else if activeView == restView {
             let rest = (timerEntity?.getRest())!
-            if let index = restValues.indexOf(rest) {
+            if let index = restValues.index(of: rest) {
                 value = CGFloat(index) / CGFloat(restValues.count)
             }
         }
@@ -209,18 +208,18 @@ class EditViewController: UIViewController {
             valueLabel.text = "\(count)x"
 
         } else if activeView == durationView {
-            let durationString: String = NSString.timeString(duration) as String
+            let durationString: String = NSString.timeString(seconds: duration) as String
             valueLabel.text = durationString
 
         } else if activeView == restView {
-            let restString: String = NSString.timeString(rest) as String
+            let restString: String = NSString.timeString(seconds: rest) as String
             valueLabel.text = restString
         }
     }
 
     //  MARK: actions
 
-    @IBAction func dialChanged(sender: KDGProgressDial) {
+    @IBAction func dialChanged(_ sender: KDGProgressDial) {
 
         var value = sender.progress
         if value >= 1.0 {
@@ -230,38 +229,38 @@ class EditViewController: UIViewController {
         if activeView == countView {
             let index = Int(value * CGFloat(countValues.count))
             let countValue = countValues[index]
-            timerEntity!.count = countValue
+            timerEntity!.count = countValue as NSNumber?
 
         } else if activeView == durationView {
             let index = Int(value * CGFloat(durationValues.count))
             let duration = durationValues[index]
-            timerEntity!.duration = duration
+            timerEntity!.duration = duration as NSNumber?
 
         } else if activeView == restView {
             let index = Int(value * CGFloat(restValues.count))
             let rest = restValues[index]
-            timerEntity!.rest = rest
+            timerEntity!.rest = rest as NSNumber?
         }
 
         updateValueLabel()
         updateInfo()
     }
 
-    @IBAction func countAction(sender: UITapGestureRecognizer) {
+    @IBAction func countAction(_ sender: UITapGestureRecognizer) {
         activeView = sender.view
         updateActiveView()
         updateDial()
         updateValueLabel()
     }
 
-    @IBAction func durationAction(sender: UITapGestureRecognizer) {
+    @IBAction func durationAction(_ sender: UITapGestureRecognizer) {
         activeView = sender.view
         updateActiveView()
         updateDial()
         updateValueLabel()
     }
 
-    @IBAction func restAction(sender: UITapGestureRecognizer) {
+    @IBAction func restAction(_ sender: UITapGestureRecognizer) {
         activeView = sender.view
         updateActiveView()
         updateDial()
@@ -271,26 +270,26 @@ class EditViewController: UIViewController {
 
 extension EditViewController: UITextFieldDelegate {
 
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == nameField {
-            textField.textAlignment = .Left
+            textField.textAlignment = .left
         }
     }
 
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
 
         if textField == nameField {
-            textField.textAlignment = .Center
+            textField.textAlignment = .center
             timerEntity!.name = textField.text
             DataModel.sharedInstance.save()
         }
     }
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         var shouldReturn = true
 
         if textField == nameField {
-            shouldReturn = isNameOkay(textField.text!)
+            shouldReturn = isNameOkay(name: textField.text!)
         }
 
         if shouldReturn {

@@ -11,19 +11,19 @@ class TimerEntity: NSManagedObject {
 // Insert code here to add functionality to your managed object subclass
 
     func getCount() -> Int {
-        return (count?.integerValue)!
+        return (count?.intValue)!
     }
 
     func getDuration() -> Int {
-        return (duration?.integerValue)!
+        return (duration?.intValue)!
     }
 
     func getRest() -> Int {
-        return (rest?.integerValue)!
+        return (rest?.intValue)!
     }
 
     func getDelay() -> Int {
-        return (delay?.integerValue)!
+        return (delay?.intValue)!
     }
 
 }

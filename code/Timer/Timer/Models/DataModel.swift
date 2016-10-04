@@ -20,8 +20,8 @@ class DataModel {
 
     //  Prevent usage of the default () initializer.
     //
-    private init() {
-        kAppName = NSBundle.mainBundle().infoDictionary![kCFBundleNameKey as String] as! String
+    fileprivate init() {
+        kAppName = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
     }
 
     func setUp() {
@@ -33,11 +33,11 @@ class DataModel {
     }
 
     func save() {
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
     }
 
     func fetchSessionEntity() -> SessionEntity {
-        let entities = SessionEntity.MR_findAll() as! [SessionEntity]
+        let entities = SessionEntity.mr_findAll() as! [SessionEntity]
         return entities[0]
     }
 
@@ -46,9 +46,9 @@ class DataModel {
         return (sessionEntity.soundOn?.boolValue)!
     }
 
-    func setSoundOn(soundOn: Bool) {
+    func set(soundOn: Bool) {
         let sessionEntity = fetchSessionEntity()
-        sessionEntity.soundOn = soundOn
+        sessionEntity.soundOn = soundOn as NSNumber?
         save()
     }
 
@@ -57,23 +57,23 @@ class DataModel {
         return sessionEntity.activeTimer!
     }
 
-    func setActiveTimerEntity(timerEntity: TimerEntity) {
+    func setActiveTimerEntity(_ timerEntity: TimerEntity) {
         let sessionEntity = fetchSessionEntity()
         sessionEntity.activeTimer = timerEntity
         save()
     }
 
     func fetchAllTimerEntities() -> [TimerEntity] {
-        let entities = TimerEntity.MR_findAllSortedBy("order", ascending: true) as! [TimerEntity]
+        let entities = TimerEntity.mr_findAllSorted(by: "order", ascending: true) as! [TimerEntity]
         return entities
     }
 
     func fetchTimerEntityCount() -> UInt {
-        let count = TimerEntity.MR_countOfEntities()
+        let count = TimerEntity.mr_countOfEntities()
         return count
     }
 
-    func createTimerEntity(name: String,
+    func createTimerEntity(_ name: String,
                            count: Int,
                            duration: Int,
                            rest: Int = 0,
@@ -81,15 +81,15 @@ class DataModel {
                            interval: Int = 0,
                            alert: Int = 0
                            ) -> TimerEntity? {
-        if let timerEntity = TimerEntity.MR_createEntity() {
+        if let timerEntity = TimerEntity.mr_createEntity() {
             timerEntity.name = name
             timerEntity.order = 0
-            timerEntity.count = count
-            timerEntity.duration = duration
-            timerEntity.rest = rest
-            timerEntity.delay = delay
-            timerEntity.interval = interval
-            timerEntity.alert = alert
+            timerEntity.count = count as NSNumber?
+            timerEntity.duration = duration as NSNumber?
+            timerEntity.rest = rest as NSNumber?
+            timerEntity.delay = delay as NSNumber?
+            timerEntity.interval = interval as NSNumber?
+            timerEntity.alert = alert as NSNumber?
             save()
             return timerEntity
 
@@ -99,28 +99,28 @@ class DataModel {
         }
     }
 
-    func deleteTimerEntity(timerEntity: TimerEntity) {
-        timerEntity.MR_deleteEntity()
+    func deleteTimerEntity(_ timerEntity: TimerEntity) {
+        timerEntity.mr_deleteEntity()
         save()
 
-        NSNotificationCenter.defaultCenter().postNotificationName(DataModel.DeleteTimerEntityNotification,
+        NotificationCenter.default.post(name: Notification.Name(rawValue: DataModel.DeleteTimerEntityNotification),
                                                                   object: self,
                                                                   userInfo: nil)
     }
 
-    func insertTimerEntity(timerEntity: TimerEntity, index: Int) {
+    func insertTimerEntity(_ timerEntity: TimerEntity, index: Int) {
         let userInfo: [String: AnyObject] = ["entity" : timerEntity,
-                                             "position" : index]
+                                             "position" : index as AnyObject]
 
-        NSNotificationCenter.defaultCenter().postNotificationName(DataModel.InsertTimerEntityNotification,
+        NotificationCenter.default.post(name: Notification.Name(rawValue: DataModel.InsertTimerEntityNotification),
                                                                   object: self,
                                                                   userInfo: userInfo)
     }
 
-    func reorderTimerEntities(timerEntities: [TimerEntity]) {
+    func reorderTimerEntities(_ timerEntities: [TimerEntity]) {
         var index: Int = 0
         for timerEntity in timerEntities {
-            timerEntity.order = index
+            timerEntity.order = index as NSNumber?
             index = index + 1
         }
         save()
@@ -130,7 +130,7 @@ class DataModel {
 
         var activeTimerEntity: TimerEntity? = nil
 
-        if let timerEntity = TimerEntity.MR_createEntity() {
+        if let timerEntity = TimerEntity.mr_createEntity() {
             timerEntity.name = "Timer A"
             timerEntity.order = 1
             timerEntity.count = 5
@@ -142,7 +142,7 @@ class DataModel {
             activeTimerEntity = timerEntity
         }
 
-        if let timerEntity = TimerEntity.MR_createEntity() {
+        if let timerEntity = TimerEntity.mr_createEntity() {
             timerEntity.name = "Timer B"
             timerEntity.order = 2
             timerEntity.count = 5
@@ -153,7 +153,7 @@ class DataModel {
             timerEntity.alert = 0
         }
 
-        if let timerEntity = TimerEntity.MR_createEntity() {
+        if let timerEntity = TimerEntity.mr_createEntity() {
             timerEntity.name = "Timer C"
             timerEntity.order = 3
             timerEntity.count = 1
@@ -164,7 +164,7 @@ class DataModel {
             timerEntity.alert = 0
         }
 
-        if let timerEntity = TimerEntity.MR_createEntity() {
+        if let timerEntity = TimerEntity.mr_createEntity() {
             timerEntity.name = "Timer D"
             timerEntity.order = 4
             timerEntity.count = 4
@@ -175,7 +175,7 @@ class DataModel {
             timerEntity.alert = 0
         }
 
-        if let timerEntity = TimerEntity.MR_createEntity() {
+        if let timerEntity = TimerEntity.mr_createEntity() {
             timerEntity.name = "Timer E"
             timerEntity.order = 5
             timerEntity.count = 3
@@ -186,7 +186,7 @@ class DataModel {
             timerEntity.alert = 0
         }
 
-        if let sessionEntity = SessionEntity.MR_createEntity() {
+        if let sessionEntity = SessionEntity.mr_createEntity() {
             sessionEntity.counter = 0
             sessionEntity.soundOn = true
             sessionEntity.activeTimer = activeTimerEntity
@@ -195,7 +195,7 @@ class DataModel {
         save()
     }
 
-    func massageKey(key: String) -> String {
+    func massageKey(_ key: String) -> String {
         return kAppName + key
     }
 }

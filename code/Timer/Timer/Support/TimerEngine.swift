@@ -6,41 +6,41 @@
 import UIKit
 
 enum TimerEngineState {
-    case Idle
-    case GetReady
-    case Go
-    case Rest
+    case idle
+    case getReady
+    case go
+    case rest
 }
 
 protocol TimerEngineDelegate: class {
 
-    func timerEngineDidBegin(timerEngine: TimerEngine,
-                             state: TimerEngineState,
-                             round: Int,
-                             duration: NSTimeInterval)
+    func timerEngine(_ timerEngine: TimerEngine,
+                     didBegin state: TimerEngineState,
+                     round: Int,
+                     duration: TimeInterval)
 
-    func timerEngineDidProgress(timerEngine: TimerEngine,
-                             state: TimerEngineState,
-                             round: Int,
-                             progress: Float,
-                             duration: NSTimeInterval)
+    func timerEngine(_ timerEngine: TimerEngine,
+                     didProgress progress: Float,
+                     state: TimerEngineState,
+                     round: Int,
+                     duration: TimeInterval)
 
-    func timerEngineDidEnd(timerEngine: TimerEngine,
-                           state: TimerEngineState,
-                           round: Int,
-                           duration: NSTimeInterval)
+    func timerEngine(_ timerEngine: TimerEngine,
+                     didEnd state: TimerEngineState,
+                     round: Int,
+                     duration: TimeInterval)
 }
 
 class TimerEngine: NSObject {
 
     weak var delegate: TimerEngineDelegate?
 
-    var timer = NSTimer()
-    var timerDate = NSDate()
-    var timerDuration: NSTimeInterval = 0
-    var timerState: TimerEngineState = .Idle
+    var timer = Foundation.Timer()
+    var timerDate = Date()
+    var timerDuration: TimeInterval = 0
+    var timerState: TimerEngineState = .idle
     var timerRound: Int = 0
-    var timerElapsed: NSTimeInterval = 0
+    var timerElapsed: TimeInterval = 0
 
     var timerEntity: TimerEntity? {
         didSet {
@@ -56,26 +56,26 @@ class TimerEngine: NSObject {
             return
         }
 
-        if .Idle == timerState {
+        if .idle == timerState {
 
             let delay = getDelay()
 
             timerRound = 0
 
             if delay > 0 {
-                delegate?.timerEngineDidBegin(self,
-                                              state: .GetReady,
-                                              round: timerRound,
-                                              duration: NSTimeInterval(delay))
-                startTimer(delay, state: .GetReady)
+                delegate?.timerEngine(self,
+                                      didBegin: .getReady,
+                                      round: timerRound,
+                                      duration: TimeInterval(delay))
+                startTimer(duration: delay, state: .getReady)
 
             } else {
                 let duration = getDuration()
-                delegate?.timerEngineDidBegin(self,
-                                              state: .Go,
-                                              round: timerRound,
-                                              duration: NSTimeInterval(duration))
-                startTimer(duration, state: .Go)
+                delegate?.timerEngine(self,
+                                      didBegin: .go,
+                                      round: timerRound,
+                                      duration: TimeInterval(duration))
+                startTimer(duration: duration, state: .go)
             }
 
         } else {
@@ -89,7 +89,7 @@ class TimerEngine: NSObject {
 
     func reset() {
         stopTimer()
-        timerState = .Idle
+        timerState = .idle
     }
 
     func getCount() -> Int {
@@ -117,8 +117,8 @@ class TimerEngine: NSObject {
         return delay + count * duration + (count - 1) * rest
     }
 
-    func getState(interval: NSTimeInterval) -> (TimerEngineState, Int) {
-        var state: TimerEngineState = .Idle
+    func getState(fromInterval interval: TimeInterval) -> (TimerEngineState, Int) {
+        var state: TimerEngineState = .idle
         var round: Int = 0
 
         let count = getCount()
@@ -127,36 +127,36 @@ class TimerEngine: NSObject {
         let rest = getRest()
         let totalTime = getTotalTime()
 
-        if interval < 0.0 || interval > NSTimeInterval(totalTime) {
-            state = .Idle
+        if interval < 0.0 || interval > TimeInterval(totalTime) {
+            state = .idle
 
-        } else if delay > 0 && interval <= NSTimeInterval(delay) {
-            state = .GetReady
+        } else if delay > 0 && interval <= TimeInterval(delay) {
+            state = .getReady
 
         } else {
             //
             //  Last round.
             //
-            if interval > NSTimeInterval(totalTime - duration) {
-                state = .Go
+            if interval > TimeInterval(totalTime - duration) {
+                state = .go
                 round = count - 1
 
             } else {
                 round = Int(
-                    ceil((interval - NSTimeInterval(delay))
-                        / NSTimeInterval(duration + rest))
+                    ceil((interval - TimeInterval(delay))
+                        / TimeInterval(duration + rest))
                     )
 
                 if round > 0 {
                     round = round - 1
                 }
 
-                let goStart = NSTimeInterval(delay + round * (duration + rest))
+                let goStart = TimeInterval(delay + round * (duration + rest))
 
-                if interval <= goStart + NSTimeInterval(duration) {
-                    state = .Go
+                if interval <= goStart + TimeInterval(duration) {
+                    state = .go
                 } else {
-                    state = .Rest
+                    state = .rest
                 }
             }
         }
@@ -167,13 +167,13 @@ class TimerEngine: NSObject {
     //  MARK: timer
 
     func startTimer(duration: Int, state: TimerEngineState) {
-        timerDate = NSDate()
-        timerDuration = NSTimeInterval(duration)
+        timerDate = Date()
+        timerDuration = TimeInterval(duration)
         timerState = state
 
         timer.invalidate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(
-            0.01,
+        timer = Foundation.Timer.scheduledTimer(
+            timeInterval: 0.01,
             target: self,
             selector: #selector(TimerEngine.timerAction(_:)),
             userInfo: ["custom" : "data"],
@@ -181,11 +181,11 @@ class TimerEngine: NSObject {
     }
 
     func resumeTimer() {
-        timerDate = NSDate(timeIntervalSinceNow: -timerElapsed)
+        timerDate = Date(timeIntervalSinceNow: -timerElapsed)
 
         timer.invalidate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(
-            0.01,
+        timer = Foundation.Timer.scheduledTimer(
+            timeInterval: 0.01,
             target: self,
             selector: #selector(TimerEngine.timerAction(_:)),
             userInfo: ["custom" : "data"],
@@ -193,46 +193,46 @@ class TimerEngine: NSObject {
     }
 
     func stopTimer() {
-        timerElapsed = NSDate().timeIntervalSinceDate(timerDate)
+        timerElapsed = Date().timeIntervalSince(timerDate)
         timer.invalidate()
     }
 
-    func timerAction(timer: NSTimer!) {
-        let elapsed = NSDate().timeIntervalSinceDate(timerDate)
+    func timerAction(_ timer: Foundation.Timer!) {
+        let elapsed = Date().timeIntervalSince(timerDate)
 
         if elapsed >= timerDuration {
             timer.invalidate()
-            delegate?.timerEngineDidEnd(self,
-                                        state: timerState,
-                                        round: timerRound,
-                                        duration: timerDuration)
+            delegate?.timerEngine(self,
+                                  didEnd: timerState,
+                                  round: timerRound,
+                                  duration: timerDuration)
 
-            if timerState == .GetReady {
+            if timerState == .getReady {
                 let duration = getDuration()
                 timerRound = 0
-                delegate?.timerEngineDidBegin(self,
-                                              state: .Go,
-                                              round: timerRound,
-                                              duration: NSTimeInterval(duration))
-                startTimer(duration, state: .Go)
+                delegate?.timerEngine(self,
+                                      didBegin: .go,
+                                      round: timerRound,
+                                      duration: TimeInterval(duration))
+                startTimer(duration: duration, state: .go)
 
-            } else if timerState == .Go {
+            } else if timerState == .go {
 
                 if timerRound >= getCount() - 1 {
                     //
                     //  Last round. We are done.
                     //
-                    timerState = .Idle
+                    timerState = .idle
 
                 } else {
                     let rest = getRest()
 
                     if rest > 0 {
-                        delegate?.timerEngineDidBegin(self,
-                                                      state: .Rest,
-                                                      round: timerRound,
-                                                      duration: NSTimeInterval(rest))
-                        startTimer(rest, state: .Rest)
+                        delegate?.timerEngine(self,
+                                              didBegin: .rest,
+                                              round: timerRound,
+                                              duration: TimeInterval(rest))
+                        startTimer(duration: rest, state: .rest)
 
                     } else {
                         //
@@ -241,35 +241,35 @@ class TimerEngine: NSObject {
                         let duration = getDuration()
 
                         timerRound = timerRound + 1
-                        delegate?.timerEngineDidBegin(self,
-                                                      state: .Go,
-                                                      round: timerRound,
-                                                      duration: NSTimeInterval(duration))
-                        startTimer(duration, state: .Go)
+                        delegate?.timerEngine(self,
+                                              didBegin: .go,
+                                              round: timerRound,
+                                              duration: TimeInterval(duration))
+                        startTimer(duration: duration, state: .go)
                     }
                 }
 
-            } else if timerState == .Rest {
+            } else if timerState == .rest {
                 //
                 //  Next round.
                 //
                 let duration = getDuration()
 
                 timerRound = timerRound + 1
-                delegate?.timerEngineDidBegin(self,
-                                              state: .Go,
-                                              round: timerRound,
-                                              duration: NSTimeInterval(duration))
-                startTimer(duration, state: .Go)
+                delegate?.timerEngine(self,
+                                      didBegin: .go,
+                                      round: timerRound,
+                                      duration: TimeInterval(duration))
+                startTimer(duration: duration, state: .go)
            }
 
         } else {
             let progress: Double = elapsed / timerDuration
-            delegate?.timerEngineDidProgress(self,
-                                             state: timerState,
-                                             round: timerRound,
-                                             progress: Float(progress),
-                                             duration: timerDuration)
+            delegate?.timerEngine(self,
+                                  didProgress: Float(progress),
+                                  state: timerState,
+                                  round: timerRound,
+                                  duration: timerDuration)
         }
     }
 }
