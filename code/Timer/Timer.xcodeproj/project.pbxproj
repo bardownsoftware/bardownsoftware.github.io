@@ -16,6 +16,7 @@
 		EB14B3F91D91D9AD0051A946 /* TwoBells.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EB14B3F41D91D9AD0051A946 /* TwoBells.aiff */; };
 		EB14B3FD1D91D9F40051A946 /* KDGSoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = EB14B3FC1D91D9F40051A946 /* KDGSoundEffect.m */; };
 		EB14B3FF1D9456AB0051A946 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB14B3FE1D9456AB0051A946 /* TimerTableViewCell.swift */; };
+		EB3FEDB21DA451A400E05A95 /* String+AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3FEDB11DA451A400E05A95 /* String+AppStrings.swift */; };
 		EB62FC691D874E9000AED16D /* SessionEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62FC671D874E9000AED16D /* SessionEntity+CoreDataProperties.swift */; };
 		EB62FC6A1D874E9000AED16D /* SessionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62FC681D874E9000AED16D /* SessionEntity.swift */; };
 		EBD02E431D7617F700AF9FE8 /* KDGProgressDial.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD02E421D7617F700AF9FE8 /* KDGProgressDial.m */; };
@@ -67,6 +68,7 @@
 		EB14B3FB1D91D9F40051A946 /* KDGSoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGSoundEffect.h; sourceTree = "<group>"; };
 		EB14B3FC1D91D9F40051A946 /* KDGSoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGSoundEffect.m; sourceTree = "<group>"; };
 		EB14B3FE1D9456AB0051A946 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
+		EB3FEDB11DA451A400E05A95 /* String+AppStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+AppStrings.swift"; sourceTree = "<group>"; };
 		EB62FC671D874E9000AED16D /* SessionEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SessionEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EB62FC681D874E9000AED16D /* SessionEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionEntity.swift; sourceTree = "<group>"; };
 		EBD02E411D7617F700AF9FE8 /* KDGProgressDial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGProgressDial.h; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			children = (
 				EBD02E461D774DCC00AF9FE8 /* TimerEngine.swift */,
 				EBF28D9F1D7E250100ADE0A4 /* Color+AppColors.swift */,
+				EB3FEDB11DA451A400E05A95 /* String+AppStrings.swift */,
 				EBF28DA11D83527400ADE0A4 /* String+Time.swift */,
 			);
 			path = Support;
@@ -535,6 +538,7 @@
 				EBEDC1461D6E1ABD00DD4CF0 /* UIFont+KDGUtilities.m in Sources */,
 				EBD02E471D774DCC00AF9FE8 /* TimerEngine.swift in Sources */,
 				EBF28DA21D83527400ADE0A4 /* String+Time.swift in Sources */,
+				EB3FEDB21DA451A400E05A95 /* String+AppStrings.swift in Sources */,
 				EBEDC15B1D6E582100DD4CF0 /* TimerTableViewController.swift in Sources */,
 				EBF28DA61D8369EF00ADE0A4 /* UIView+KDGAnimation.m in Sources */,
 				EBEDC1571D6E2E1B00DD4CF0 /* EditViewController.swift in Sources */,

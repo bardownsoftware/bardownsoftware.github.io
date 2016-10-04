@@ -84,7 +84,7 @@ class MainViewController: UIViewController {
     }
 
     func getReady() {
-        setStateText("Ready")
+        setStateText(String.ready())
         stateLabel.textColor = UIColor.ready()
     }
 
@@ -201,7 +201,7 @@ class MainViewController: UIViewController {
 
         } else if segue.identifier == "AddSegue" {
             if let newTimerEntity = DataModel.sharedInstance.createTimerEntity(
-                "New Timer",
+                String.newTimer(),
                 count: 3,
                 duration: 30,
                 rest: 5,
@@ -219,12 +219,7 @@ class MainViewController: UIViewController {
         updateTimerInfo()
 
         dismiss(animated: true) { 
-            //
         }
-
-        /*
-        [self .dismiss(animated: true, completion: {
-        })]*/
     }
 
     @IBAction func unwindFromList(_ sender: UIStoryboardSegue) {
@@ -234,21 +229,12 @@ class MainViewController: UIViewController {
         updateTimerInfo()
 
         dismiss(animated: true) { 
-            //
         }
-        /*
-        [self .dismiss(animated: true, completion: {
-        })]
- */
     }
 
     @IBAction func unwindFromSettings(_ sender: UIStoryboardSegue) {
         dismiss(animated: true) { 
-            //
         }
-        /*
-        [self .dismiss(animated: true, completion: {
-        })]*/
     }
 
     //  MARK: actions
@@ -304,8 +290,10 @@ extension MainViewController: TimerEngineDelegate {
             showTimeLabel()
         }
 
-        if .getReady != state {
-            setStateText("\(state)")
+        if .go == state {
+            setStateText(String.go())
+        } else if .rest == state {
+            setStateText(String.rest())
         }
 
         let count: Int = (timerEntity!.count?.intValue)!
@@ -380,7 +368,7 @@ extension MainViewController: TimerEngineDelegate {
 
         if .go == state && round == count - 1 {
             play(soundEffect: doneSoundEffect!)
-            setStateText("Done")
+            setStateText(String.done())
             stateLabel.textColor = UIColor.ready()
             setRunning(false)
             timerEngine.reset()
@@ -420,7 +408,6 @@ extension MainViewController: ListViewControllerDelegate {
         updateTimerInfo()
 
         dismiss(animated: true) {
-            //
         }
     }
 }

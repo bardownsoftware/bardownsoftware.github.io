@@ -8,7 +8,6 @@ import UIKit
 class EditViewController: UIViewController {
 
     @IBOutlet weak var progressDial: KDGProgressDial!
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var countView: UIView!
     @IBOutlet weak var durationView: UIView!
@@ -105,7 +104,6 @@ class EditViewController: UIViewController {
     }
 
     func updateInfo() {
-        let title = timerEntity?.name
         let count = (timerEntity?.getCount())!
         let duration = (timerEntity?.getDuration())!
         let rest = (timerEntity?.getRest())!
@@ -113,7 +111,6 @@ class EditViewController: UIViewController {
         let durationString: String = NSString.timeString(seconds: duration) as String
         let restString: String = NSString.timeString(seconds: rest) as String
 
-        titleLabel.text = title
         countLabel.text = "\(count)x"
         durationLabel.text = durationString
         restLabel.text = restString
@@ -134,36 +131,48 @@ class EditViewController: UIViewController {
             progressDial.numberOfStops = restValues.count
         }
 
-        activate(view: activeView!, firstTime: firstTime)
+        activate(viewToActivate: activeView!, firstTime: firstTime)
     }
 
-    func activate(view: UIView, firstTime: Bool = true) {
+    func activate(viewToActivate: UIView, firstTime: Bool = true) {
 
-        var point = view.convert(view.center, from: view.superview)
+        var point = view.convert(viewToActivate.center, from: viewToActivate.superview)
 
         point.y = point.y + activeViewOffset
 
-        self.selectView.isHidden = false
+        selectView.isHidden = false
+
+        let animate = true
 
         if firstTime {
-            self.selectView.center = point
-            self.selectView.alpha = 0.0
+            selectView.center = point
 
-            UIView.animate(withDuration: 0.1,
-                                       delay: 0.0,
-                                       options: .curveEaseOut,
-                                       animations: {
-                                        self.selectView.alpha = 1.0
-            }) { (finished) in
+            if animate {
+                selectView.alpha = 0.0
+
+                UIView.animate(withDuration: 0.1,
+                               delay: 0.0,
+                               options: .curveEaseOut,
+                               animations: {
+                                self.selectView.alpha = 1.0
+                }) { (finished) in
+                }
+
+            } else {
             }
 
         } else {
-            UIView.animate(withDuration: 0.2,
-                                       delay: 0.0,
-                                       options: .curveEaseOut,
-                                       animations: {
-                                        self.selectView.center = point
-            }) { (finished) in
+            if animate {
+                UIView.animate(withDuration: 0.2,
+                               delay: 0.0,
+                               options: .curveEaseOut,
+                               animations: {
+                                self.selectView.center = point
+                }) { (finished) in
+                }
+
+            } else {
+                selectView.center = point
             }
         }
     }
@@ -272,14 +281,14 @@ extension EditViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == nameField {
-            textField.textAlignment = .left
+            //textField.textAlignment = .left
         }
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
 
         if textField == nameField {
-            textField.textAlignment = .center
+            //textField.textAlignment = .center
             timerEntity!.name = textField.text
             DataModel.sharedInstance.save()
         }
