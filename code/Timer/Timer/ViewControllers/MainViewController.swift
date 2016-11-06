@@ -118,11 +118,22 @@ class MainViewController: UIViewController {
     }
 
     func setRunning(_ running: Bool) {
+
+        let app = UIApplication.shared
+
+        //  TODO: Investigate using UILocalNotification to get sounds playing
+        //  while app is not active.
+        //
+        let localNotification = UILocalNotification()
+
         startButton.isSelected = running
 
+
         if running {
+            app.isIdleTimerDisabled = true;
             timerEngine.start()
         } else {
+            app.isIdleTimerDisabled = false;
             timerEngine.stop()
         }
     }
