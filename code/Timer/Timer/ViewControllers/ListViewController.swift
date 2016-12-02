@@ -4,25 +4,6 @@
 //
 
 import UIKit
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
 
 protocol ListViewControllerDelegate: class {
 
@@ -75,7 +56,7 @@ class ListViewController: UIViewController {
             (timerTableViewController?.tableView)!,
             numberOfRowsInSection: 0)
 
-        editButton.isEnabled = count > 1
+        editButton.isEnabled = count! > 1
     }
 
     //  MARK: segue
