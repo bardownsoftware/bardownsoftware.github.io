@@ -124,7 +124,7 @@ class MainViewController: UIViewController {
         //  TODO: Investigate using UILocalNotification to get sounds playing
         //  while app is not active.
         //
-        let localNotification = UILocalNotification()
+        //let localNotification = UILocalNotification()
 
         startButton.isSelected = running
 
@@ -133,7 +133,8 @@ class MainViewController: UIViewController {
             app.isIdleTimerDisabled = true;
             timerEngine.start()
         } else {
-            app.isIdleTimerDisabled = false;
+            //  Why bother enabling the idle timer?
+            //app.isIdleTimerDisabled = false;
             timerEngine.stop()
         }
     }
