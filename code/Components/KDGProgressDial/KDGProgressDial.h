@@ -5,6 +5,7 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface KDGProgressDial : UIControl
 
 @property (nonatomic, assign) CGFloat progress;

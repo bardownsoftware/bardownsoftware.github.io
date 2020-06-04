@@ -16,9 +16,13 @@
 		EB14B3F91D91D9AD0051A946 /* TwoBells.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EB14B3F41D91D9AD0051A946 /* TwoBells.aiff */; };
 		EB14B3FD1D91D9F40051A946 /* KDGSoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = EB14B3FC1D91D9F40051A946 /* KDGSoundEffect.m */; };
 		EB14B3FF1D9456AB0051A946 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB14B3FE1D9456AB0051A946 /* TimerTableViewCell.swift */; };
+		EB2388F51E3403A4008611B8 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2388F41E3403A4008611B8 /* ShapeView.swift */; };
+		EB2388F81E340513008611B8 /* CGRect+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2388F71E340513008611B8 /* CGRect+Utilities.swift */; };
+		EB2388FB1E3406E7008611B8 /* UIBezierPath+Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2388FA1E3406E7008611B8 /* UIBezierPath+Shapes.swift */; };
 		EB3FEDB21DA451A400E05A95 /* String+AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3FEDB11DA451A400E05A95 /* String+AppStrings.swift */; };
 		EB62FC691D874E9000AED16D /* SessionEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62FC671D874E9000AED16D /* SessionEntity+CoreDataProperties.swift */; };
 		EB62FC6A1D874E9000AED16D /* SessionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62FC681D874E9000AED16D /* SessionEntity.swift */; };
+		EBB86CAB1E33A2EC00DD8172 /* NewStuffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB86CAA1E33A2EC00DD8172 /* NewStuffViewController.swift */; };
 		EBD02E431D7617F700AF9FE8 /* KDGProgressDial.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD02E421D7617F700AF9FE8 /* KDGProgressDial.m */; };
 		EBD02E471D774DCC00AF9FE8 /* TimerEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD02E461D774DCC00AF9FE8 /* TimerEngine.swift */; };
 		EBEDC0A21D6E134500DD4CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEDC0A11D6E134500DD4CF0 /* AppDelegate.swift */; };
@@ -68,9 +72,13 @@
 		EB14B3FB1D91D9F40051A946 /* KDGSoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGSoundEffect.h; sourceTree = "<group>"; };
 		EB14B3FC1D91D9F40051A946 /* KDGSoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGSoundEffect.m; sourceTree = "<group>"; };
 		EB14B3FE1D9456AB0051A946 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
+		EB2388F41E3403A4008611B8 /* ShapeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
+		EB2388F71E340513008611B8 /* CGRect+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Utilities.swift"; sourceTree = "<group>"; };
+		EB2388FA1E3406E7008611B8 /* UIBezierPath+Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Shapes.swift"; sourceTree = "<group>"; };
 		EB3FEDB11DA451A400E05A95 /* String+AppStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+AppStrings.swift"; sourceTree = "<group>"; };
 		EB62FC671D874E9000AED16D /* SessionEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SessionEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EB62FC681D874E9000AED16D /* SessionEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionEntity.swift; sourceTree = "<group>"; };
+		EBB86CAA1E33A2EC00DD8172 /* NewStuffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewStuffViewController.swift; sourceTree = "<group>"; };
 		EBD02E411D7617F700AF9FE8 /* KDGProgressDial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGProgressDial.h; sourceTree = "<group>"; };
 		EBD02E421D7617F700AF9FE8 /* KDGProgressDial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGProgressDial.m; sourceTree = "<group>"; };
 		EBD02E461D774DCC00AF9FE8 /* TimerEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerEngine.swift; sourceTree = "<group>"; };
@@ -166,6 +174,33 @@
 			path = KDGSoundEffect;
 			sourceTree = "<group>";
 		};
+		EB2388F31E3403A4008611B8 /* ShapeView */ = {
+			isa = PBXGroup;
+			children = (
+				EB2388F41E3403A4008611B8 /* ShapeView.swift */,
+			);
+			name = ShapeView;
+			path = ../../../Components/ShapeView;
+			sourceTree = "<group>";
+		};
+		EB2388F61E340513008611B8 /* CGRect+ */ = {
+			isa = PBXGroup;
+			children = (
+				EB2388F71E340513008611B8 /* CGRect+Utilities.swift */,
+			);
+			name = "CGRect+";
+			path = "../../../Components/CGRect+";
+			sourceTree = "<group>";
+		};
+		EB2388F91E3406E7008611B8 /* UIBezierPath+ */ = {
+			isa = PBXGroup;
+			children = (
+				EB2388FA1E3406E7008611B8 /* UIBezierPath+Shapes.swift */,
+			);
+			name = "UIBezierPath+";
+			path = "../../../Components/UIBezierPath+";
+			sourceTree = "<group>";
+		};
 		EBD02E401D7617F700AF9FE8 /* KDGProgressDial */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,9 +261,12 @@
 		EBEDC1271D6E1ABD00DD4CF0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EB2388F61E340513008611B8 /* CGRect+ */,
+				EB2388F31E3403A4008611B8 /* ShapeView */,
 				EBD02E401D7617F700AF9FE8 /* KDGProgressDial */,
 				EB14B3FA1D91D9F40051A946 /* KDGSoundEffect */,
 				EBEDC1311D6E1ABD00DD4CF0 /* KDGUtilities */,
+				EB2388F91E3406E7008611B8 /* UIBezierPath+ */,
 				EBEDC1371D6E1ABD00DD4CF0 /* UIColor+ */,
 				EBEDC13A1D6E1ABD00DD4CF0 /* UIFont+ */,
 				EBF28DA31D8369EF00ADE0A4 /* UIView+ */,
@@ -303,6 +341,7 @@
 				EBEDC1561D6E2E1B00DD4CF0 /* EditViewController.swift */,
 				EBEDC1581D6E2E2900DD4CF0 /* ListViewController.swift */,
 				EBEDC14C1D6E1E8D00DD4CF0 /* MainViewController.swift */,
+				EBB86CAA1E33A2EC00DD8172 /* NewStuffViewController.swift */,
 				EBEDC15A1D6E582100DD4CF0 /* TimerTableViewController.swift */,
 			);
 			path = ViewControllers;
@@ -539,6 +578,7 @@
 				EBD02E471D774DCC00AF9FE8 /* TimerEngine.swift in Sources */,
 				EBF28DA21D83527400ADE0A4 /* String+Time.swift in Sources */,
 				EB3FEDB21DA451A400E05A95 /* String+AppStrings.swift in Sources */,
+				EB2388F51E3403A4008611B8 /* ShapeView.swift in Sources */,
 				EBEDC15B1D6E582100DD4CF0 /* TimerTableViewController.swift in Sources */,
 				EBF28DA61D8369EF00ADE0A4 /* UIView+KDGAnimation.m in Sources */,
 				EBEDC1571D6E2E1B00DD4CF0 /* EditViewController.swift in Sources */,
@@ -547,8 +587,11 @@
 				EBEDC1531D6E292700DD4CF0 /* TimerEntity.swift in Sources */,
 				EB14B3FF1D9456AB0051A946 /* TimerTableViewCell.swift in Sources */,
 				EBF28DA01D7E250100ADE0A4 /* Color+AppColors.swift in Sources */,
+				EB2388F81E340513008611B8 /* CGRect+Utilities.swift in Sources */,
 				EBEDC1451D6E1ABD00DD4CF0 /* UIColor+KDGUtilities.m in Sources */,
+				EB2388FB1E3406E7008611B8 /* UIBezierPath+Shapes.swift in Sources */,
 				EBEDC1431D6E1ABD00DD4CF0 /* KDGUtilities.mm in Sources */,
+				EBB86CAB1E33A2EC00DD8172 /* NewStuffViewController.swift in Sources */,
 				EB14B3FD1D91D9F40051A946 /* KDGSoundEffect.m in Sources */,
 				EBEDC1591D6E2E2900DD4CF0 /* ListViewController.swift in Sources */,
 				EBEDC0A21D6E134500DD4CF0 /* AppDelegate.swift in Sources */,

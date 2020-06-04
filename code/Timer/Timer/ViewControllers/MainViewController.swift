@@ -249,6 +249,12 @@ class MainViewController: UIViewController {
         }
     }
 
+    @IBAction func unwindFromNewStuff(_ sender: UIStoryboardSegue) {
+        dismiss(animated: true) {
+            print("*** unwind from new stuff...")
+        }
+    }
+
     //  MARK: actions
 
     @IBAction func startAction(_ sender: UIButton) {

@@ -22,7 +22,7 @@ class EditViewController: UIViewController {
 
     let activeViewOffset: CGFloat = 4.0
 
-    let countValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 20]
+    let countValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20, 21, 24, 25, 27, 30, 32, 36, 40, 45, 48]
 
     let durationValues = [10, 15, 30, 45,
                           1 * 60,
